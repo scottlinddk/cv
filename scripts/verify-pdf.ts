@@ -35,9 +35,15 @@ for (const lang of LOCALES) {
 
   const text = run('pdftotext', '-layout', file, '-');
   check('text selectable', text.includes(profile.name));
+  // Letter-spaced uppercase headings can be extracted as "E X P E R I E N C E", so ignore whitespace.
+  const squash = (value: string) => value.replace(/\s+/g, '').toUpperCase();
+  const heading = ui[lang].sections.experience;
   check(
     'localized headings',
-    text.toUpperCase().includes(ui[lang].sections.experience.toUpperCase()),
+    squash(text).includes(squash(heading)),
+    squash(text).includes(squash(heading))
+      ? ''
+      : `expected "${heading}", got: ${text.slice(0, 400)}`,
   );
   check('page number footer', /\d+\s*\/\s*\d+/.test(text));
 }
