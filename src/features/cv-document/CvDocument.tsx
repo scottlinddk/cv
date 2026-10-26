@@ -1,4 +1,4 @@
-import { profile } from '../../content';
+import { profile, projects, spokenLanguages } from '../../content';
 import { ContactList } from '../../components/ContactList/ContactList';
 import { Section } from '../../components/Section/Section';
 import { EducationList } from '../education/EducationList';
@@ -48,20 +48,24 @@ export function CvDocument() {
               <EducationList />
             </Section>
             <Section title={t.sections.skills}>
-              <SkillGroups variant="bullets" />
+              <SkillGroups />
             </Section>
-            <Section title={t.sections.languages}>
-              <LanguageList />
-            </Section>
+            {spokenLanguages.length > 0 && (
+              <Section title={t.sections.languages}>
+                <LanguageList />
+              </Section>
+            )}
           </aside>
 
           <div className={styles.main}>
             <Section title={t.sections.experience}>
               <ExperienceList />
             </Section>
-            <Section title={t.sections.projects}>
-              <ProjectList />
-            </Section>
+            {projects.length > 0 && (
+              <Section title={t.sections.projects}>
+                <ProjectList />
+              </Section>
+            )}
           </div>
         </div>
       </article>

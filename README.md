@@ -1,7 +1,7 @@
 # CV
 
 Personal CV website (React + TypeScript + Vite) with print-perfect output and build-time PDF export.
-Danish and English. **All content in `src/content/` is placeholder, replace it with your own.**
+Danish and English. Content lives in `src/content/` (Danish and English).
 
 ## Commands
 
@@ -36,7 +36,7 @@ hurts text extraction, so avoid them for anything that ends up in the PDF.
 ## Editing content
 
 Everything lives in `src/content/` as typed data. Anything user-facing is `Localized<T>`, so TypeScript
-fails the build if a Danish or English string is missing. Replace `public/photo.svg` with your photo.
+fails the build if a Danish or English string is missing. The photo is `public/photo.jpg`. Sections with no entries (projects, spoken languages) are hidden automatically.
 
 ## Hosting under a sub-path
 

@@ -5,12 +5,15 @@ export const DEFAULT_LOCALE: Locale = 'en';
 /** A value that exists once per supported language. TypeScript enforces parity. */
 export type Localized<T> = Record<Locale, T>;
 
-export type ContactKind = 'email' | 'github' | 'linkedin' | 'web' | 'location';
+/** Plain text, or one text per language when it differs (e.g. place names). */
+export type LocalizedText = string | Localized<string>;
+
+export type ContactKind = 'email' | 'phone' | 'github' | 'linkedin' | 'web' | 'location';
 
 export interface ContactLink {
   kind: ContactKind;
   /** Text shown to the reader (and printed). */
-  label: string;
+  label: LocalizedText;
   href?: string;
 }
 
@@ -27,28 +30,34 @@ export interface Experience {
   id: string;
   company: string;
   role: Localized<string>;
-  location: string;
+  location: LocalizedText;
   /** "YYYY-MM" is formatted per locale; any other string is shown as-is. */
   start: string;
   /** null means current position. */
   end: string | null;
-  summary: Localized<string>;
+  summary?: Localized<string>;
   highlights: Localized<string[]>;
   tech: string[];
+}
+
+export interface Period {
+  start: string;
+  end: string | null;
 }
 
 export interface Education {
   id: string;
   institution: string;
   degree: Localized<string>;
-  start: string;
-  end: string | null;
+  /** More than one when the study was interrupted. */
+  periods: Period[];
+  highlights?: Localized<string[]>;
 }
 
 export interface SkillGroup {
   id: string;
   label: Localized<string>;
-  items: string[];
+  items: LocalizedText[];
 }
 
 export interface Project {

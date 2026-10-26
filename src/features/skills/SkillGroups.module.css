@@ -1,6 +1,6 @@
 .groups {
   display: grid;
-  gap: 1em;
+  gap: 0.9em;
 }
 
 .group {
@@ -11,18 +11,4 @@
   margin: 0 0 0.35em;
   font-size: 1em;
   font-weight: 600;
-}
-
-.bullets {
-  margin: 0;
-  padding-inline-start: 1.1em;
-  color: var(--color-muted);
-}
-
-.bullets li {
-  margin-block: 0.2em;
-}
-
-.bullets li::marker {
-  color: var(--color-accent);
 }

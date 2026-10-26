@@ -7,7 +7,7 @@ import { Hero } from '../features/hero/Hero';
 import { LanguageList } from '../features/languages/LanguageList';
 import { ProjectList } from '../features/projects/ProjectList';
 import { SkillGroups } from '../features/skills/SkillGroups';
-import { profile } from '../content';
+import { profile, projects, spokenLanguages } from '../content';
 import { useLocale } from '../hooks/useLocale';
 import styles from './HomePage.module.css';
 
@@ -32,15 +32,19 @@ export function HomePage() {
         <Section title={t.sections.skills}>
           <SkillGroups />
         </Section>
-        <Section title={t.sections.projects}>
-          <ProjectList />
-        </Section>
+        {projects.length > 0 && (
+          <Section title={t.sections.projects}>
+            <ProjectList />
+          </Section>
+        )}
         <Section title={t.sections.education}>
           <EducationList />
         </Section>
-        <Section title={t.sections.languages}>
-          <LanguageList />
-        </Section>
+        {spokenLanguages.length > 0 && (
+          <Section title={t.sections.languages}>
+            <LanguageList />
+          </Section>
+        )}
       </main>
     </>
   );

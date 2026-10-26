@@ -52,7 +52,7 @@ const en: UiStrings = {
 
 const da: UiStrings = {
   skipToContent: 'Gå til indhold',
-  present: 'Nu',
+  present: 'Nuværende',
   nav: { home: 'Forside', cv: 'CV' },
   sections: {
     summary: 'Profil',

@@ -1,14 +1,10 @@
 import { skillGroups } from '../../content';
 import { TagList } from '../../components/Tag/TagList';
 import { useLocale } from '../../hooks/useLocale';
+import { resolve } from '../../lib/localize';
 import styles from './SkillGroups.module.css';
 
-interface SkillGroupsProps {
-  /** "chips" for the web page, "bullets" for the compact CV sidebar. */
-  variant?: 'chips' | 'bullets';
-}
-
-export function SkillGroups({ variant = 'chips' }: SkillGroupsProps) {
+export function SkillGroups() {
   const { locale } = useLocale();
 
   return (
@@ -16,15 +12,7 @@ export function SkillGroups({ variant = 'chips' }: SkillGroupsProps) {
       {skillGroups.map((group) => (
         <div key={group.id} className={styles.group}>
           <h3 className={styles.label}>{group.label[locale]}</h3>
-          {variant === 'chips' ? (
-            <TagList items={group.items} />
-          ) : (
-            <ul className={styles.bullets}>
-              {group.items.map((item) => (
-                <li key={item}>{item}</li>
-              ))}
-            </ul>
-          )}
+          <TagList items={group.items.map((item) => resolve(item, locale))} />
         </div>
       ))}
     </div>

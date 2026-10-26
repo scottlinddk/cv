@@ -1,5 +1,7 @@
 import { profile } from '../../content';
 import { Icon } from '../Icon/Icon';
+import { useLocale } from '../../hooks/useLocale';
+import { resolve } from '../../lib/localize';
 import styles from './ContactList.module.css';
 
 interface ContactListProps {
@@ -8,6 +10,7 @@ interface ContactListProps {
 }
 
 export function ContactList({ layout = 'row' }: ContactListProps) {
+  const { locale } = useLocale();
   return (
     <ul className={`${styles.list} ${styles[layout]}`}>
       {profile.contacts.map((contact) => (
@@ -15,7 +18,11 @@ export function ContactList({ layout = 'row' }: ContactListProps) {
           <span className={styles.icon}>
             <Icon name={contact.kind} />
           </span>
-          {contact.href ? <a href={contact.href}>{contact.label}</a> : <span>{contact.label}</span>}
+          {contact.href ? (
+            <a href={contact.href}>{resolve(contact.label, locale)}</a>
+          ) : (
+            <span>{resolve(contact.label, locale)}</span>
+          )}
         </li>
       ))}
     </ul>

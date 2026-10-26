@@ -17,7 +17,7 @@
   color: var(--color-text);
   box-shadow: 0 2px 20px rgb(0 0 0 / 0.12);
   /* Everything inside is sized in em, so the whole document scales from this one value. */
-  font-size: 9.5pt;
+  font-size: 9pt;
   line-height: 1.5;
 }
 
@@ -26,16 +26,16 @@
   display: grid;
   grid-template-columns: auto minmax(0, 1fr) 52mm;
   align-items: start;
-  gap: 1.8em;
-  padding: 2em;
+  gap: 1.5em;
+  padding: 1.6em;
   border-radius: 1.4em;
   background: var(--gradient-warm);
   break-inside: avoid;
 }
 
 .photo {
-  width: 27mm;
-  height: 27mm;
+  width: 25mm;
+  height: 25mm;
   border: 0.5mm solid #fff;
   border-radius: 50%;
   object-fit: cover;
@@ -71,7 +71,7 @@
 .body {
   display: grid;
   grid-template-columns: 56mm minmax(0, 1fr);
-  margin-block-start: 1.8em;
+  margin-block-start: 1.5em;
 }
 
 .sidebar {
@@ -85,8 +85,8 @@
 
 .sidebar > section + section,
 .main > section + section {
-  margin-block-start: 1.6em;
-  padding-block-start: 1.6em;
+  margin-block-start: 1.3em;
+  padding-block-start: 1.3em;
   border-block-start: 1px solid var(--color-border);
 }
 
