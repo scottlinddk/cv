@@ -1,0 +1,16 @@
+.section {
+  margin-block-start: 1.6em;
+}
+
+.section:first-child {
+  margin-block-start: 0;
+}
+
+.heading {
+  margin: 0 0 0.7em;
+  color: var(--color-text);
+  font-size: 1.2em;
+  font-weight: 500;
+  line-height: 1.2;
+  break-after: avoid;
+}

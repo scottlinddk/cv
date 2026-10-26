@@ -1,0 +1,14 @@
+.groups {
+  display: grid;
+  gap: 0.9em;
+}
+
+.group {
+  break-inside: avoid;
+}
+
+.label {
+  margin: 0 0 0.35em;
+  font-size: 1em;
+  font-weight: 600;
+}
