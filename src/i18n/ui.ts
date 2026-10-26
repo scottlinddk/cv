@@ -11,6 +11,7 @@ export interface UiStrings {
     education: string;
     projects: string;
     languages: string;
+    contact: string;
   };
   actions: {
     viewCv: string;
@@ -33,6 +34,7 @@ const en: UiStrings = {
     education: 'Education',
     projects: 'Projects',
     languages: 'Languages',
+    contact: 'Contact',
   },
   actions: {
     viewCv: 'View CV',
@@ -59,6 +61,7 @@ const da: UiStrings = {
     education: 'Uddannelse',
     projects: 'Projekter',
     languages: 'Sprog',
+    contact: 'Kontakt',
   },
   actions: {
     viewCv: 'Se CV',

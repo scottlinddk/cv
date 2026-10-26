@@ -1,80 +1,116 @@
-/* Screen: grey desk with a white A4 sheet on it. */
+/* Screen: dotted desk with a white A4 card on it. */
 .stage {
   padding: 1.5rem 1rem 3rem;
-  background: var(--color-desk);
+  background-color: var(--color-desk);
+  background-image: radial-gradient(rgb(0 0 0 / 0.09) 1px, transparent 1px);
+  background-size: 18px 18px;
 }
 
 .paper {
-  /* The sheet is always light, regardless of the visitor's colour scheme. */
-  --color-bg: #fff;
-  --color-surface: #f4f6f9;
-  --color-text: #1a1d23;
-  --color-muted: #5b6472;
-  --color-accent: #0b5cad;
-  --color-border: #d8dde5;
-
   box-sizing: border-box;
   width: min(210mm, 100%);
   min-height: 297mm;
   margin-inline: auto;
-  padding: 14mm 14mm 16mm;
+  padding: 12mm 12mm 16mm;
+  border-radius: 20px;
   background: var(--color-bg);
   color: var(--color-text);
-  box-shadow: 0 2px 16px rgb(0 0 0 / 0.18);
+  box-shadow: 0 2px 20px rgb(0 0 0 / 0.12);
   /* Everything inside is sized in em, so the whole document scales from this one value. */
   font-size: 9.5pt;
-  line-height: 1.45;
+  line-height: 1.5;
 }
 
+/* Header panel: the warm gradient lives inside the page margins so print matches the screen. */
 .header {
-  display: flex;
-  align-items: center;
-  gap: 1.5em;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) 52mm;
+  align-items: start;
+  gap: 1.8em;
+  padding: 2em;
+  border-radius: 1.4em;
+  background: var(--gradient-warm);
   break-inside: avoid;
 }
 
 .photo {
-  flex: none;
-  width: 28mm;
-  height: 28mm;
+  width: 27mm;
+  height: 27mm;
+  border: 0.5mm solid #fff;
   border-radius: 50%;
   object-fit: cover;
 }
 
 .name {
   margin: 0;
-  font-size: 2.2em;
-  line-height: 1.1;
+  font-size: 3em;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
 }
 
 .title {
-  margin: 0.15em 0 0.5em;
+  margin: 0.3em 0 0.8em;
   color: var(--color-accent);
   font-size: 1.25em;
-  font-weight: 600;
+  font-weight: 500;
 }
 
 .summary {
   margin: 0;
+  color: var(--color-muted);
 }
 
-.columns {
+.contactTitle {
+  margin: 0 0 0.7em;
+  font-size: 1.2em;
+  font-weight: 500;
+}
+
+/* Sidebar + main. Sections inside each column are separated by a hairline. */
+.body {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0 2em;
+  grid-template-columns: 56mm minmax(0, 1fr);
+  margin-block-start: 1.8em;
 }
 
-@media (max-width: 40rem) {
+.sidebar {
+  padding-inline-end: 2em;
+}
+
+.main {
+  padding-inline-start: 2em;
+  border-inline-start: 1px solid var(--color-border);
+}
+
+.sidebar > section + section,
+.main > section + section {
+  margin-block-start: 1.6em;
+  padding-block-start: 1.6em;
+  border-block-start: 1px solid var(--color-border);
+}
+
+@media (max-width: 48rem) {
   .paper {
-    padding: 1.25rem;
+    padding: 1rem;
     min-height: 0;
   }
   .header {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-  .columns {
     grid-template-columns: 1fr;
+    padding: 1.25rem;
+  }
+  .body {
+    grid-template-columns: 1fr;
+  }
+  .sidebar {
+    padding-inline-end: 0;
+    padding-block-end: 1.6em;
+  }
+  .main {
+    padding-inline-start: 0;
+    border-inline-start: 0;
+    border-block-start: 1px solid var(--color-border);
+    padding-block-start: 1.6em;
   }
 }
 
@@ -89,6 +125,7 @@
     min-height: 0;
     margin: 0;
     padding: 0;
+    border-radius: 0;
     box-shadow: none;
   }
 }

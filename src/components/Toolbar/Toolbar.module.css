@@ -2,37 +2,45 @@
   position: sticky;
   top: 0;
   z-index: 10;
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
   align-items: center;
-  justify-content: space-between;
   gap: 0.75rem;
   padding: 0.75rem 1rem;
-  border-block-end: 1px solid var(--color-border);
-  background: var(--color-bg);
+  background: color-mix(in srgb, var(--color-desk) 85%, transparent);
+  backdrop-filter: blur(8px);
 }
 
 .back {
+  justify-self: start;
   color: var(--color-text);
   font-size: 0.875rem;
+  text-decoration: none;
+}
+
+.title {
+  margin: 0;
+  font-size: 0.9375rem;
+  font-weight: 500;
 }
 
 .actions {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
+  justify-self: end;
   gap: 0.5rem;
 }
 
 .button {
   padding: 0.35rem 0.8rem;
   border: 1px solid var(--color-border);
-  border-radius: var(--radius);
-  background: transparent;
+  border-radius: 999px;
+  background: var(--color-bg);
   color: var(--color-text);
   font: inherit;
   font-size: 0.8125rem;
-  font-weight: 600;
+  font-weight: 500;
   text-decoration: none;
   cursor: pointer;
 }
@@ -41,4 +49,16 @@
   border-color: var(--color-accent);
   background: var(--color-accent);
   color: var(--color-on-accent);
+}
+
+@media (max-width: 40rem) {
+  .toolbar {
+    grid-template-columns: 1fr;
+  }
+  .title {
+    display: none;
+  }
+  .actions {
+    justify-self: start;
+  }
 }

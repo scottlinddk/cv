@@ -6,10 +6,10 @@
 .link {
   padding: 0.25rem 0.55rem;
   border: 1px solid var(--color-border);
-  border-radius: var(--radius);
+  border-radius: 999px;
   color: var(--color-text);
   font-size: 0.8125rem;
-  font-weight: 600;
+  font-weight: 500;
   text-decoration: none;
 }
 

@@ -1,5 +1,6 @@
 import { Link } from 'react-router';
 import { LanguageSwitch } from '../LanguageSwitch/LanguageSwitch';
+import { profile } from '../../content';
 import { useLocale } from '../../hooks/useLocale';
 import styles from './Toolbar.module.css';
 
@@ -13,6 +14,7 @@ export function Toolbar() {
       <Link to={`/${locale}`} className={styles.back}>
         ← {t.actions.backToSite}
       </Link>
+      <p className={styles.title}>{profile.name} · CV</p>
       <div className={styles.actions}>
         <LanguageSwitch />
         <button type="button" className={styles.button} onClick={() => window.print()}>

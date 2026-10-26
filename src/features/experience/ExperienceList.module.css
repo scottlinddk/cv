@@ -1,51 +1,67 @@
+/* Timeline: the rail is the list's own border (so it continues across page breaks),
+   the dots are positioned per item, and items never split across pages. */
 .list {
+  --rail-gap: 1.5em;
+  --dot: 0.7em;
+
   display: grid;
-  gap: 1.1em;
-  margin: 0;
-  padding: 0;
+  gap: 1.3em;
+  margin: 0 0 0 calc(var(--dot) / 2);
+  padding: 0 0 0 var(--rail-gap);
+  border-inline-start: 0.09em solid var(--color-line);
   list-style: none;
 }
 
-/* Never split a job across pages. */
 .item {
+  position: relative;
   break-inside: avoid;
 }
 
-.head {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 0 1em;
+.item::before {
+  content: '';
+  position: absolute;
+  inset-block-start: 0.32em;
+  inset-inline-start: calc(-1 * var(--rail-gap) - var(--dot) / 2 - 0.045em);
+  width: var(--dot);
+  height: var(--dot);
+  border-radius: 50%;
+  background: var(--color-accent);
 }
 
 .role {
   margin: 0;
   font-size: 1.05em;
-  font-weight: 700;
+  font-weight: 600;
+  line-height: 1.3;
   break-after: avoid;
 }
 
 .company {
   font-weight: 500;
-  color: var(--color-muted);
 }
 
 .meta {
-  margin: 0;
-  color: var(--color-muted);
-  font-size: 0.88em;
+  margin: 0.1em 0 0.5em;
+  color: var(--color-accent);
+  font-size: 0.92em;
+  font-weight: 500;
 }
 
 .summary {
-  margin: 0.3em 0;
+  margin: 0 0 0.35em;
+  color: var(--color-muted);
 }
 
 .highlights {
-  margin: 0 0 0.5em;
-  padding-inline-start: 1.2em;
+  margin: 0 0 0.6em;
+  padding-inline-start: 1.1em;
+  color: var(--color-muted);
 }
 
 .highlights li {
-  margin-block: 0.15em;
+  margin-block: 0.2em;
+}
+
+.highlights li::marker {
+  color: var(--color-accent);
 }

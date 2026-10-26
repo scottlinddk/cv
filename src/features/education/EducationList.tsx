@@ -10,10 +10,9 @@ export function EducationList() {
     <ul className={styles.list}>
       {education.map((entry) => (
         <li key={entry.id} className={styles.item}>
-          <h3 className={styles.degree}>{entry.degree[locale]}</h3>
-          <p className={styles.meta}>
-            {entry.institution} · {formatPeriod(entry.start, entry.end, locale, t.present)}
-          </p>
+          <p className={styles.period}>{formatPeriod(entry.start, entry.end, locale, t.present)}</p>
+          <h3 className={styles.institution}>{entry.institution}</h3>
+          <p className={styles.degree}>{entry.degree[locale]}</p>
         </li>
       ))}
     </ul>

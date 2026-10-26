@@ -8,7 +8,7 @@
 
   @bottom-right {
     content: counter(page) ' / ' counter(pages);
-    color: #5b6472;
+    color: #57534e;
     font-family: 'Inter', system-ui, sans-serif;
     font-size: 8pt;
   }
@@ -19,19 +19,23 @@
   :root {
     color-scheme: light;
     --color-bg: #fff;
-    --color-surface: #f4f6f9;
-    --color-text: #1a1d23;
-    --color-muted: #5b6472;
-    --color-accent: #0b5cad;
-    --color-on-accent: #fff;
-    --color-border: #d8dde5;
+    --color-surface: #f7f3f0;
+    --color-text: #1c1917;
+    --color-muted: #57534e;
+    --color-accent: #c2410c;
+    --color-border: #e7e2dd;
+    --color-line: #44403c;
     --color-desk: #fff;
+    --gradient-warm:
+      radial-gradient(60% 110% at 100% 0%, rgb(251 146 60 / 0.5), transparent 70%),
+      radial-gradient(45% 90% at 72% -10%, rgb(253 186 116 / 0.45), transparent 70%),
+      radial-gradient(40% 80% at 0% 100%, rgb(254 215 170 / 0.4), transparent 70%), #fffaf6;
   }
 
   html,
   body {
     background: #fff;
-    color: #1a1d23;
+    color: #1c1917;
   }
 
   /* Keep backgrounds and borders (tags, accents) instead of letting the browser strip them. */

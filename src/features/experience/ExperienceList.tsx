@@ -11,14 +11,12 @@ export function ExperienceList() {
     <ol className={styles.list}>
       {experience.map((job) => (
         <li key={job.id} className={styles.item}>
-          <div className={styles.head}>
-            <h3 className={styles.role}>
-              {job.role[locale]} <span className={styles.company}>· {job.company}</span>
-            </h3>
-            <p className={styles.meta}>
-              {formatPeriod(job.start, job.end, locale, t.present)} · {job.location}
-            </p>
-          </div>
+          <h3 className={styles.role}>
+            {job.role[locale]}, <span className={styles.company}>{job.company}</span>
+          </h3>
+          <p className={styles.meta}>
+            {formatPeriod(job.start, job.end, locale, t.present)} · {job.location}
+          </p>
           <p className={styles.summary}>{job.summary[locale]}</p>
           <ul className={styles.highlights}>
             {job.highlights[locale].map((line) => (
