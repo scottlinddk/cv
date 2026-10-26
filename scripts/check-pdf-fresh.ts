@@ -1,7 +1,8 @@
 /**
  * The PDFs served in production are committed in public/ (Vercel builds don't run Chromium).
  * This fails when the content or print layout changed but public/cv.*.pdf were not regenerated.
- * Compares extracted text and page count against a fresh render in dist/, since PDF bytes differ per run.
+ * Compares the extracted characters and page count against a fresh render in dist/, since PDF bytes differ per run.
+ * CSS-only changes that move no text are not detected here, so run `npm run pdf:update` after styling edits too.
  */
 import { execFileSync } from 'node:child_process';
 import { existsSync } from 'node:fs';
@@ -9,9 +10,11 @@ import path from 'node:path';
 import { LOCALES } from '../src/content/types.ts';
 
 const run = (cmd: string, ...args: string[]) => execFileSync(cmd, args, { encoding: 'utf8' });
+// Reading order of a two-column layout differs between poppler versions, so compare the sorted
+// characters instead of the sequence: any added, removed or changed text (or page count) still differs.
 const summary = (file: string) => ({
   pages: /Pages:\s+(\d+)/.exec(run('pdfinfo', file))?.[1],
-  text: run('pdftotext', '-layout', file, '-').replace(/\s+/g, ''),
+  text: [...run('pdftotext', '-layout', file, '-').replace(/\s+/g, '')].sort().join(''),
 });
 
 let stale = false;
