@@ -38,6 +38,19 @@ hurts text extraction, so avoid them for anything that ends up in the PDF.
 Everything lives in `src/content/` as typed data. Anything user-facing is `Localized<T>`, so TypeScript
 fails the build if a Danish or English string is missing. The photo is `public/photo.jpg`. Sections with no entries (projects, spoken languages) are hidden automatically.
 
-## Hosting under a sub-path
+## Deploying on Vercel
 
-Set `VITE_BASE=/cv/` for build and pdf (for example on GitHub Pages) and add an SPA fallback (`404.html`).
+Import the repo in Vercel. `vercel.json` sets the Vite build, the SPA fallback (so `/da/cv` works on a
+hard refresh) and cache headers. No environment variables are needed.
+
+Vercel only runs `npm run build`. The downloadable PDFs are **committed** in `public/cv.da.pdf` and
+`public/cv.en.pdf`, because build containers aren't a reliable place to run headless Chromium. After any
+change to content or print styling, run:
+
+```bash
+npm run pdf:update   # build, render PDFs into public/, verify them
+```
+
+and commit the PDFs. CI (`npm run check:pdf`) fails if they are stale, so an outdated PDF can't ship.
+
+For a sub-path host such as GitHub Pages, set `VITE_BASE=/cv/` and add an SPA fallback (`404.html`).

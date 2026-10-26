@@ -26,6 +26,7 @@ jobs:
           npx playwright install --with-deps chromium
       - run: npm run pdf
       - run: npm run verify:pdf
+      - run: npm run check:pdf
       - uses: actions/upload-artifact@v4
         with:
           name: site

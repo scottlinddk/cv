@@ -4,7 +4,7 @@
  */
 @page {
   size: A4;
-  margin: 14mm 14mm 16mm;
+  margin: 12mm 14mm 14mm;
 
   @bottom-right {
     content: counter(page) ' / ' counter(pages);

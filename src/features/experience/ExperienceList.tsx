@@ -16,7 +16,12 @@ export function ExperienceList() {
             {job.role[locale]}, <span className={styles.company}>{job.company}</span>
           </h3>
           <p className={styles.meta}>
-            {formatPeriod(job.start, job.end, locale, t.present)} · {resolve(job.location, locale)}
+            {[
+              formatPeriod(job.start, job.end, locale, t.present),
+              job.location && resolve(job.location, locale),
+            ]
+              .filter(Boolean)
+              .join(' · ')}
           </p>
           {job.summary && <p className={styles.summary}>{job.summary[locale]}</p>}
           {job.highlights[locale].length > 0 && (

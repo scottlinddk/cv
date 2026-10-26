@@ -8,8 +8,21 @@ export const experience: Experience[] = [
     location: { en: 'Denmark', da: 'Danmark' },
     start: '2026-01',
     end: null,
+    summary: {
+      en: 'Frontend development of energy trading applications.',
+      da: 'Frontend-udvikling af applikationer til energihandel.',
+    },
     highlights: { en: [], da: [] },
     tech: ['React', 'TypeScript', 'TanStack Query', 'React Router'],
+  },
+  {
+    id: 'koerber',
+    company: 'Körber Supply Chain',
+    role: { en: 'Frontend Architect', da: 'Frontend-arkitekt' },
+    start: '2025-11',
+    end: '2025-12',
+    highlights: { en: [], da: [] },
+    tech: [],
   },
   {
     id: 'jcd-lead',
@@ -20,7 +33,7 @@ export const experience: Experience[] = [
     },
     location: { en: 'Aalborg, Denmark', da: 'Aalborg, Danmark' },
     start: '2024-10',
-    end: '2025-12',
+    end: '2025-11',
     highlights: {
       en: [
         'Led digital projects from idea to implementation with a focus on user experience and business value',

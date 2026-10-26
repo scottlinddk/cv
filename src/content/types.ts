@@ -30,7 +30,7 @@ export interface Experience {
   id: string;
   company: string;
   role: Localized<string>;
-  location: LocalizedText;
+  location?: LocalizedText;
   /** "YYYY-MM" is formatted per locale; any other string is shown as-is. */
   start: string;
   /** null means current position. */

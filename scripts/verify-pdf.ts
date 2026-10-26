@@ -10,6 +10,7 @@ import { ui } from '../src/i18n/ui.ts';
 
 const run = (cmd: string, ...args: string[]) => execFileSync(cmd, args, { encoding: 'utf8' });
 let failed = false;
+const dir = path.resolve(process.argv[2] ?? 'dist');
 
 function check(label: string, ok: boolean, detail = '') {
   console.log(`${ok ? 'ok  ' : 'FAIL'} ${label}${detail ? ` (${detail})` : ''}`);
@@ -17,7 +18,7 @@ function check(label: string, ok: boolean, detail = '') {
 }
 
 for (const lang of LOCALES) {
-  const file = path.resolve('dist', `cv.${lang}.pdf`);
+  const file = path.join(dir, `cv.${lang}.pdf`);
   console.log(`\n${path.basename(file)}`);
 
   const info = run('pdfinfo', file);

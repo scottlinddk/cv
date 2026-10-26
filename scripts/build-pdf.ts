@@ -10,7 +10,9 @@ import { chromium } from 'playwright';
 import { preview } from 'vite';
 import { LOCALES } from '../src/content/types.ts';
 
-const DIST = path.resolve('dist');
+// `--out <dir>` chooses where the PDFs are written (default dist). The site is always served from dist.
+const outFlag = process.argv.indexOf('--out');
+const OUT = path.resolve(outFlag > -1 ? (process.argv[outFlag + 1] ?? 'dist') : 'dist');
 
 const server = await preview({
   preview: { host: '127.0.0.1', port: 4173, strictPort: false, open: false },
@@ -21,7 +23,7 @@ if (!origin) throw new Error('Preview server did not start');
 const browser = await chromium.launch({ executablePath: process.env.CHROMIUM_PATH });
 
 try {
-  await mkdir(DIST, { recursive: true });
+  await mkdir(OUT, { recursive: true });
   const context = await browser.newContext({ colorScheme: 'light', locale: 'en' });
 
   for (const lang of LOCALES) {
@@ -37,7 +39,7 @@ try {
     });
     await page.emulateMedia({ media: 'print' });
 
-    const file = path.join(DIST, `cv.${lang}.pdf`);
+    const file = path.join(OUT, `cv.${lang}.pdf`);
     await page.pdf({
       path: file,
       preferCSSPageSize: true, // honour @page { size: A4 }

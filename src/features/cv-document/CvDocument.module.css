@@ -17,17 +17,17 @@
   color: var(--color-text);
   box-shadow: 0 2px 20px rgb(0 0 0 / 0.12);
   /* Everything inside is sized in em, so the whole document scales from this one value. */
-  font-size: 9pt;
-  line-height: 1.5;
+  font-size: 8.8pt;
+  line-height: 1.45;
 }
 
 /* Header panel: the warm gradient lives inside the page margins so print matches the screen. */
 .header {
   display: grid;
-  grid-template-columns: auto minmax(0, 1fr) 52mm;
+  grid-template-columns: auto minmax(0, 1fr) 48mm;
   align-items: start;
-  gap: 1.5em;
-  padding: 1.6em;
+  gap: 1.4em;
+  padding: 1.3em 1.6em;
   border-radius: 1.4em;
   background: var(--gradient-warm);
   break-inside: avoid;
@@ -71,7 +71,7 @@
 .body {
   display: grid;
   grid-template-columns: 56mm minmax(0, 1fr);
-  margin-block-start: 1.5em;
+  margin-block-start: 1.3em;
 }
 
 .sidebar {
@@ -85,8 +85,8 @@
 
 .sidebar > section + section,
 .main > section + section {
-  margin-block-start: 1.3em;
-  padding-block-start: 1.3em;
+  margin-block-start: 1.1em;
+  padding-block-start: 1.1em;
   border-block-start: 1px solid var(--color-border);
 }
 
