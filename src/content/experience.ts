@@ -22,6 +22,7 @@ export const experience: Experience[] = [
     id: 'koerber',
     company: 'Körber Supply Chain',
     role: { en: 'Frontend Architect', da: 'Frontend-arkitekt' },
+    location: { en: 'Arden, Denmark', da: 'Arden, Danmark' },
     start: '2025-11',
     end: '2025-12',
     highlights: { en: [], da: [] },
