@@ -1,0 +1,51 @@
+.list {
+  display: grid;
+  gap: 1.1em;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* Never split a job across pages. */
+.item {
+  break-inside: avoid;
+}
+
+.head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0 1em;
+}
+
+.role {
+  margin: 0;
+  font-size: 1.05em;
+  font-weight: 700;
+  break-after: avoid;
+}
+
+.company {
+  font-weight: 500;
+  color: var(--color-muted);
+}
+
+.meta {
+  margin: 0;
+  color: var(--color-muted);
+  font-size: 0.88em;
+}
+
+.summary {
+  margin: 0.3em 0;
+}
+
+.highlights {
+  margin: 0 0 0.5em;
+  padding-inline-start: 1.2em;
+}
+
+.highlights li {
+  margin-block: 0.15em;
+}

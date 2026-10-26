@@ -1,0 +1,19 @@
+.groups {
+  display: grid;
+  gap: 0.7em;
+  margin: 0;
+}
+
+.group {
+  break-inside: avoid;
+}
+
+.label {
+  margin-block-end: 0.25em;
+  font-size: 0.9em;
+  font-weight: 700;
+}
+
+.items {
+  margin: 0;
+}

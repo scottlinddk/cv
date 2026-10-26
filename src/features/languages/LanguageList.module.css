@@ -1,0 +1,11 @@
+.list {
+  display: grid;
+  gap: 0.25em;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.level {
+  color: var(--color-muted);
+}

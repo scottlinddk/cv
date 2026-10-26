@@ -1,0 +1,94 @@
+/* Screen: grey desk with a white A4 sheet on it. */
+.stage {
+  padding: 1.5rem 1rem 3rem;
+  background: var(--color-desk);
+}
+
+.paper {
+  /* The sheet is always light, regardless of the visitor's colour scheme. */
+  --color-bg: #fff;
+  --color-surface: #f4f6f9;
+  --color-text: #1a1d23;
+  --color-muted: #5b6472;
+  --color-accent: #0b5cad;
+  --color-border: #d8dde5;
+
+  box-sizing: border-box;
+  width: min(210mm, 100%);
+  min-height: 297mm;
+  margin-inline: auto;
+  padding: 14mm 14mm 16mm;
+  background: var(--color-bg);
+  color: var(--color-text);
+  box-shadow: 0 2px 16px rgb(0 0 0 / 0.18);
+  /* Everything inside is sized in em, so the whole document scales from this one value. */
+  font-size: 9.5pt;
+  line-height: 1.45;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 1.5em;
+  break-inside: avoid;
+}
+
+.photo {
+  flex: none;
+  width: 28mm;
+  height: 28mm;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.name {
+  margin: 0;
+  font-size: 2.2em;
+  line-height: 1.1;
+}
+
+.title {
+  margin: 0.15em 0 0.5em;
+  color: var(--color-accent);
+  font-size: 1.25em;
+  font-weight: 600;
+}
+
+.summary {
+  margin: 0;
+}
+
+.columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 2em;
+}
+
+@media (max-width: 40rem) {
+  .paper {
+    padding: 1.25rem;
+    min-height: 0;
+  }
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .columns {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Paper: @page supplies the margins, so the sheet padding and chrome go away. */
+@media print {
+  .stage {
+    padding: 0;
+    background: none;
+  }
+  .paper {
+    width: auto;
+    min-height: 0;
+    margin: 0;
+    padding: 0;
+    box-shadow: none;
+  }
+}

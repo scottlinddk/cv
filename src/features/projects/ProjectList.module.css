@@ -1,0 +1,21 @@
+.list {
+  display: grid;
+  gap: 0.9em;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.item {
+  break-inside: avoid;
+}
+
+.name {
+  margin: 0;
+  font-size: 1em;
+  font-weight: 700;
+}
+
+.description {
+  margin: 0.2em 0 0.4em;
+}

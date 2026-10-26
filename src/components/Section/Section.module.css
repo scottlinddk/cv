@@ -1,0 +1,15 @@
+.section {
+  margin-block-start: 1.4em;
+}
+
+.heading {
+  margin: 0 0 0.6em;
+  padding-block-end: 0.25em;
+  border-block-end: 0.08em solid var(--color-accent);
+  color: var(--color-accent);
+  font-size: 0.85em;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  break-after: avoid;
+}

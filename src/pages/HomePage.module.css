@@ -1,0 +1,28 @@
+.skip {
+  position: absolute;
+  inset-inline-start: 1rem;
+  inset-block-start: -4rem;
+  padding: 0.5rem 1rem;
+  background: var(--color-accent);
+  color: var(--color-on-accent);
+}
+
+.skip:focus {
+  inset-block-start: 1rem;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 1rem;
+  max-width: 56rem;
+  margin-inline: auto;
+  padding: 1rem;
+}
+
+.main {
+  max-width: 56rem;
+  margin-inline: auto;
+  padding: 0 1rem 4rem;
+}
