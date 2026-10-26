@@ -8,11 +8,14 @@ export const experience: Experience[] = [
     location: { en: 'Denmark', da: 'Danmark' },
     start: '2026-01',
     end: null,
-    summary: {
-      en: 'Frontend development of energy trading applications.',
-      da: 'Frontend-udvikling af applikationer til energihandel.',
+    highlights: {
+      en: [
+        'Build data-dense React and TypeScript interfaces for energy trading, giving traders fast, clear views of live market data',
+      ],
+      da: [
+        'Udvikler datatætte React- og TypeScript-grænseflader til energihandel, der giver tradere hurtigt og klart overblik over live markedsdata',
+      ],
     },
-    highlights: { en: [], da: [] },
     tech: ['React', 'TypeScript', 'TanStack Query', 'React Router'],
   },
   {
