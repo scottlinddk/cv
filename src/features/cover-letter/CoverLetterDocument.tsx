@@ -1,0 +1,33 @@
+import { ContactList, Letter } from '../../../design-system/index';
+import { profile } from '../../content';
+import type { Locale } from '../../content';
+import { resolve } from '../../lib/localize';
+import { splitParagraphs } from '../../lib/letter';
+
+interface CoverLetterDocumentProps {
+  headline: string;
+  body: string;
+  /** Language of the letter, which follows the job posting and can differ from the site language. */
+  locale: Locale;
+}
+
+/** The cover letter as an A4 document: profile identity as the role line, contact details as the footer. */
+export function CoverLetterDocument({ headline, body, locale }: CoverLetterDocumentProps) {
+  return (
+    <Letter
+      lang={locale}
+      headline={headline}
+      kicker={`${profile.name} · ${profile.title[locale]}`}
+      paragraphs={splitParagraphs(body)}
+      footer={
+        <ContactList
+          items={profile.contacts.map((contact) => ({
+            kind: contact.kind,
+            label: resolve(contact.label, locale),
+            href: contact.href,
+          }))}
+        />
+      }
+    />
+  );
+}

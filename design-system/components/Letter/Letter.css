@@ -1,0 +1,55 @@
+/* A letter is read, not scanned, so it sets the body larger than the CV sheet's 8.8pt. */
+.ds-sheet.ds-letter {
+  font-size: 11pt;
+  line-height: 1.6;
+}
+
+.ds-letter__head {
+  padding-block-end: 1.1em;
+  border-block-end: var(--ds-hairline) solid var(--ds-color-line-strong);
+}
+
+.ds-letter__headline {
+  font-family: var(--ds-font-display);
+  font-size: clamp(2.25em, 6vw, 3.4em);
+  font-weight: 400;
+  font-synthesis: none;
+  letter-spacing: -0.01em;
+  line-height: var(--ds-leading-tight);
+}
+
+.ds-letter__kicker {
+  margin-block-start: 0.55em;
+  color: var(--ds-color-accent-text);
+  font-family: var(--ds-font-mono);
+  font-size: 0.9em;
+  letter-spacing: var(--ds-tracking-label);
+  text-transform: uppercase;
+}
+
+.ds-letter__body {
+  display: grid;
+  gap: 1em;
+  max-width: 68ch;
+  margin-block-start: 1.6em;
+  color: var(--ds-color-ink-2);
+}
+
+.ds-letter__paragraph {
+  white-space: pre-line;
+  overflow-wrap: anywhere;
+}
+
+.ds-letter__footer {
+  margin-block-start: 2em;
+  padding-block-start: 1em;
+  border-block-start: var(--ds-hairline) solid var(--ds-color-line);
+  color: var(--ds-color-muted);
+  font-size: 0.85em;
+}
+
+@media print {
+  .ds-letter__body {
+    max-width: none;
+  }
+}

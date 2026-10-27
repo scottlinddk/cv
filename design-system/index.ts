@@ -57,3 +57,4 @@ export {
   type ProjectShowcaseLink,
   type ProjectShowcaseProps,
 } from './components/ProjectShowcase/ProjectShowcase';
+export { Letter, type LetterProps } from './components/Letter/Letter';

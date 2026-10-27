@@ -94,17 +94,14 @@
   text-transform: uppercase;
 }
 
-.draft {
+.result > * {
   width: 100%;
-  margin: 0;
-  padding: var(--ds-space-4);
-  border: var(--ds-hairline) solid var(--ds-color-line);
-  border-radius: var(--ds-radius-md);
-  background: var(--ds-color-surface);
-  font-family: var(--ds-font-sans);
-  font-size: var(--ds-text-body);
-  white-space: pre-wrap;
-  overflow-wrap: anywhere;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--ds-space-2);
 }
 
 .modes {
