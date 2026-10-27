@@ -63,17 +63,17 @@ export function HomePage() {
           <Section title={t.sections.skills}>
             <SkillGroups variant="cards" />
           </Section>
-          {projects.length > 0 && (
-            <Section title={t.sections.projects}>
-              <ProjectShowcase />
-            </Section>
-          )}
           <Section title={t.sections.education}>
             <EducationList />
           </Section>
           {spokenLanguages.length > 0 && (
             <Section title={t.sections.languages}>
               <LanguageList />
+            </Section>
+          )}
+          {projects.length > 0 && (
+            <Section title={t.sections.projects}>
+              <ProjectShowcase />
             </Section>
           )}
           <SiteFooter />
