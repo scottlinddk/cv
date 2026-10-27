@@ -11,9 +11,8 @@ export const profile: Profile = {
     da: 'Frontend-udvikler med stærke kompetencer i JavaScript/TypeScript, flere års erfaring med .NET/C# samt erfaring som projektleder. Med en solid teknisk baggrund og evnen til at løfte teamets samlede niveau gennem sparring og videndeling. Kendt for min positive energi, min nysgerrighed efter ny teknologi og min evne til at finde løsninger, der skaber reel værdi for både forretning og slutbruger.',
   },
   photo: 'photo.jpg',
-  // The site and PDFs are public, so no phone number is listed. To add one (or GitHub later), include
-  // { kind: 'phone', label: '+45 …', href: 'tel:+45…' } or
-  // { kind: 'github', label: 'github.com/<user>', href: 'https://github.com/<user>' } below.
+  // The site and PDFs are public, so no phone number is listed. To add one, include
+  // { kind: 'phone', label: '+45 …', href: 'tel:+45…' } below.
   contacts: [
     { kind: 'email', label: 'scttlnd@gmail.com', href: 'mailto:scttlnd@gmail.com' },
     {
@@ -21,6 +20,7 @@ export const profile: Profile = {
       label: 'linkedin.com/in/scottlind',
       href: 'https://www.linkedin.com/in/scottlind/',
     },
+    { kind: 'github', label: 'github.com/scottlinddk', href: 'https://github.com/scottlinddk/' },
     { kind: 'location', label: { en: 'Klarup, Denmark', da: 'Klarup, Danmark' } },
   ],
 };
