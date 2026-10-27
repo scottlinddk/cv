@@ -2,36 +2,49 @@ import { useCallback, useEffect, useState } from 'react';
 import type { ThemeChoice } from '../../design-system/index';
 
 const KEY = 'theme';
+const DARK_QUERY = '(prefers-color-scheme: dark)';
 
-function read(): ThemeChoice {
+function readStored(): ThemeChoice | null {
   try {
     const stored = localStorage.getItem(KEY);
     if (stored === 'light' || stored === 'dark') return stored;
   } catch {
     // Storage can be blocked (private mode); fall back to following the OS.
   }
-  return 'system';
+  return null;
 }
 
-/** The inline script in index.html applies the stored choice before first paint; this keeps it in sync. */
+/**
+ * The scheme that is showing: the visitor's saved choice, otherwise the OS preference (which keeps
+ * being followed until they press the toggle). The inline script in index.html applies the stored
+ * choice before first paint; this keeps React and <html data-theme> in sync.
+ */
 export function useTheme() {
-  const [theme, setThemeState] = useState<ThemeChoice>(read);
+  const [stored, setStored] = useState<ThemeChoice | null>(readStored);
+  const [systemDark, setSystemDark] = useState(() => window.matchMedia(DARK_QUERY).matches);
+
+  useEffect(() => {
+    const query = window.matchMedia(DARK_QUERY);
+    const onChange = (event: MediaQueryListEvent) => setSystemDark(event.matches);
+    query.addEventListener('change', onChange);
+    return () => query.removeEventListener('change', onChange);
+  }, []);
 
   useEffect(() => {
     const root = document.documentElement;
-    if (theme === 'system') root.removeAttribute('data-theme');
-    else root.setAttribute('data-theme', theme);
-  }, [theme]);
+    if (stored) root.setAttribute('data-theme', stored);
+    else root.removeAttribute('data-theme');
+  }, [stored]);
 
   const setTheme = useCallback((next: ThemeChoice) => {
-    setThemeState(next);
+    setStored(next);
     try {
-      if (next === 'system') localStorage.removeItem(KEY);
-      else localStorage.setItem(KEY, next);
+      localStorage.setItem(KEY, next);
     } catch {
       // Ignore: the choice still applies for this visit.
     }
   }, []);
 
+  const theme: ThemeChoice = stored ?? (systemDark ? 'dark' : 'light');
   return { theme, setTheme };
 }

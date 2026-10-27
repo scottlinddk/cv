@@ -49,7 +49,6 @@ export { Sheet, type SheetProps } from './components/Sheet/Sheet';
 export {
   ThemeSwitch,
   type ThemeChoice,
-  type ThemeSwitchOption,
   type ThemeSwitchProps,
 } from './components/ThemeSwitch/ThemeSwitch';
 export {

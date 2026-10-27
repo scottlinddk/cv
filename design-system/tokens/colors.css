@@ -1,84 +1,114 @@
 /*
- * Colour tokens. Warm "Running" palette (canvas, paper, ink, ember) with the CV's paper-white sheet.
- * Light is the default; dark follows the OS or [data-theme="dark"]. .ds-theme-paper pins light.
+ * Colour tokens. Brand palette: vibrant greens on deep forest, with soft sage neutrals.
+ * Light is the default; dark (the inverse: forest canvas, sage ink, neon accent) follows the OS or
+ * [data-theme="dark"]. .ds-theme-paper pins light. Semantic tokens below only reference the brand
+ * primitives, so a rebrand is a change to this first block.
  */
 :root {
-  --ds-color-canvas: #f2ebdb;
+  --ds-brand-green: #00c445;
+  --ds-brand-green-bright: #00d759;
+  --ds-brand-green-neon: #00ff7e;
+  --ds-brand-forest: #003200;
+  --ds-brand-sage-700: #5b755c;
+  --ds-brand-sage-500: #779178;
+  --ds-brand-sage-300: #b0c6b3;
+  --ds-brand-sage-100: #d9e8db;
+  /* Derived from the brand colours to reach WCAG AA for text, plus a paper tint. */
+  --ds-brand-green-deep: #006b26;
+  --ds-brand-sage-900: #3f5c40;
+  --ds-brand-mist: #ecf4ed;
+}
+
+:root {
+  --ds-color-canvas: var(--ds-brand-sage-100);
   --ds-color-paper: #fff;
-  --ds-color-surface: #fbf6e8;
-  --ds-color-surface-2: #e8dfc8;
-  --ds-color-ink: #1a1612;
-  --ds-color-ink-2: #4a4239;
-  --ds-color-muted: #6b6152;
-  --ds-color-line: #d6cbb4;
-  --ds-color-line-strong: #4a4239;
-  --ds-color-accent: #dc4a1e;
-  --ds-color-accent-text: #b43a12;
-  --ds-color-on-accent: #fff;
-  --ds-color-card: #26211c;
-  --ds-color-card-ink: #f2ebdb;
-  --ds-color-card-muted: #b9ae98;
-  --ds-color-card-line: #3d352d;
+  --ds-color-surface: #fff;
+  --ds-color-surface-2: var(--ds-brand-sage-300);
+  --ds-color-ink: var(--ds-brand-forest);
+  --ds-color-ink-2: #1f4a21;
+  --ds-color-muted: var(--ds-brand-sage-900);
+  --ds-color-line: var(--ds-brand-sage-300);
+  --ds-color-line-strong: var(--ds-brand-sage-700);
+  --ds-color-accent: var(--ds-brand-green);
+  --ds-color-accent-text: var(--ds-brand-green-deep);
+  --ds-color-on-accent: var(--ds-brand-forest);
+  --ds-color-card: var(--ds-brand-forest);
+  --ds-color-card-ink: var(--ds-brand-sage-100);
+  --ds-color-card-muted: var(--ds-brand-sage-300);
+  --ds-color-card-line: #1f4a21;
+  --ds-glow: none;
   color-scheme: light dark;
 }
 
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme='light']) {
-    --ds-color-canvas: #0f0d0b;
-    --ds-color-paper: #15110d;
-    --ds-color-surface: #1a1714;
-    --ds-color-surface-2: #221d18;
-    --ds-color-ink: #f2ebdb;
-    --ds-color-ink-2: #c9bfa8;
-    --ds-color-muted: #a09582;
-    --ds-color-line: #2f2924;
-    --ds-color-line-strong: #a8a29e;
-    --ds-color-accent: #f26a3d;
-    --ds-color-accent-text: #ff8a5f;
-    --ds-color-on-accent: #1a0f08;
-    --ds-color-card: #221d18;
-    --ds-color-card-ink: #f2ebdb;
-    --ds-color-card-muted: #a09582;
-    --ds-color-card-line: #3c342c;
+    --ds-glow: radial-gradient(
+      90% 55% at 50% 108%,
+      rgb(0 255 126 / 0.2),
+      rgb(0 50 0 / 0.45) 45%,
+      transparent 75%
+    );
+    --ds-color-canvas: #030a04;
+    --ds-color-paper: #07130a;
+    --ds-color-surface: rgb(217 232 219 / 0.06);
+    --ds-color-surface-2: rgb(217 232 219 / 0.12);
+    --ds-color-ink: var(--ds-brand-sage-100);
+    --ds-color-ink-2: var(--ds-brand-sage-300);
+    --ds-color-muted: #9db5a0;
+    --ds-color-line: rgb(217 232 219 / 0.14);
+    --ds-color-line-strong: var(--ds-brand-sage-500);
+    --ds-color-accent: var(--ds-brand-green-neon);
+    --ds-color-accent-text: var(--ds-brand-green-neon);
+    --ds-color-on-accent: var(--ds-brand-forest);
+    --ds-color-card: rgb(0 50 0 / 0.55);
+    --ds-color-card-ink: var(--ds-brand-sage-100);
+    --ds-color-card-muted: var(--ds-brand-sage-300);
+    --ds-color-card-line: rgb(217 232 219 / 0.16);
   }
 }
 
 :root[data-theme='dark'] {
-  --ds-color-canvas: #0f0d0b;
-  --ds-color-paper: #15110d;
-  --ds-color-surface: #1a1714;
-  --ds-color-surface-2: #221d18;
-  --ds-color-ink: #f2ebdb;
-  --ds-color-ink-2: #c9bfa8;
-  --ds-color-muted: #a09582;
-  --ds-color-line: #2f2924;
-  --ds-color-line-strong: #a8a29e;
-  --ds-color-accent: #f26a3d;
-  --ds-color-accent-text: #ff8a5f;
-  --ds-color-on-accent: #1a0f08;
-  --ds-color-card: #221d18;
-  --ds-color-card-ink: #f2ebdb;
-  --ds-color-card-muted: #a09582;
-  --ds-color-card-line: #3c342c;
+  --ds-glow: radial-gradient(
+    90% 55% at 50% 108%,
+    rgb(0 255 126 / 0.2),
+    rgb(0 50 0 / 0.45) 45%,
+    transparent 75%
+  );
+  --ds-color-canvas: #030a04;
+  --ds-color-paper: #07130a;
+  --ds-color-surface: rgb(217 232 219 / 0.06);
+  --ds-color-surface-2: rgb(217 232 219 / 0.12);
+  --ds-color-ink: var(--ds-brand-sage-100);
+  --ds-color-ink-2: var(--ds-brand-sage-300);
+  --ds-color-muted: #9db5a0;
+  --ds-color-line: rgb(217 232 219 / 0.14);
+  --ds-color-line-strong: var(--ds-brand-sage-500);
+  --ds-color-accent: var(--ds-brand-green-neon);
+  --ds-color-accent-text: var(--ds-brand-green-neon);
+  --ds-color-on-accent: var(--ds-brand-forest);
+  --ds-color-card: rgb(0 50 0 / 0.55);
+  --ds-color-card-ink: var(--ds-brand-sage-100);
+  --ds-color-card-muted: var(--ds-brand-sage-300);
+  --ds-color-card-line: rgb(217 232 219 / 0.16);
 }
 
 /* The CV sheet is always paper-white, whatever the visitor's colour scheme. */
 .ds-theme-paper {
   --ds-color-paper: #fff;
-  --ds-color-surface: #fbf6e8;
-  --ds-color-surface-2: #e8dfc8;
-  --ds-color-ink: #1a1612;
-  --ds-color-ink-2: #4a4239;
-  --ds-color-muted: #6b6152;
-  --ds-color-line: #d6cbb4;
-  --ds-color-line-strong: #4a4239;
-  --ds-color-accent: #dc4a1e;
-  --ds-color-accent-text: #b43a12;
-  --ds-color-on-accent: #fff;
-  --ds-color-card: #26211c;
-  --ds-color-card-ink: #f2ebdb;
-  --ds-color-card-muted: #b9ae98;
-  --ds-color-card-line: #3d352d;
+  --ds-color-surface: #fff;
+  --ds-color-surface-2: var(--ds-brand-sage-300);
+  --ds-color-ink: var(--ds-brand-forest);
+  --ds-color-ink-2: #1f4a21;
+  --ds-color-muted: var(--ds-brand-sage-900);
+  --ds-color-line: var(--ds-brand-sage-300);
+  --ds-color-line-strong: var(--ds-brand-sage-700);
+  --ds-color-accent: var(--ds-brand-green);
+  --ds-color-accent-text: var(--ds-brand-green-deep);
+  --ds-color-on-accent: var(--ds-brand-forest);
+  --ds-color-card: var(--ds-brand-forest);
+  --ds-color-card-ink: var(--ds-brand-sage-100);
+  --ds-color-card-muted: var(--ds-brand-sage-300);
+  --ds-color-card-line: #1f4a21;
   background: var(--ds-color-paper);
   color: var(--ds-color-ink);
 }
