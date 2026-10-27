@@ -60,3 +60,8 @@
     grid-template-columns: 1fr;
   }
 }
+
+/* The contact column is shorter than the identity block, so it can breathe without growing the header. */
+.ds-profile__aside .ds-contacts--stack {
+  gap: 0.95em;
+}
