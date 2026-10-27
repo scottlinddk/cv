@@ -2,6 +2,15 @@ import type { Education } from './types';
 
 export const education: Education[] = [
   {
+    id: 'prince2',
+    institution: 'Teknologisk Institut',
+    degree: {
+      en: 'PRINCE2 Foundation, IT project management',
+      da: 'PRINCE2 Foundation, it-projektledelse',
+    },
+    periods: [{ start: '2025-05', end: '2025-05' }],
+  },
+  {
     id: 'ucn',
     institution: 'University College Nordjylland',
     degree: { en: 'Multimedia Design', da: 'Multimediedesign' },
