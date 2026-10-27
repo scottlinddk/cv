@@ -1,6 +1,8 @@
 .ds-experience {
+  --ds-timeline-gutter: 1.6em;
+  --ds-timeline-dot: 0.7em;
   margin: 0;
-  padding: 0;
+  padding: 0 0 0 var(--ds-timeline-gutter);
   list-style: none;
 }
 
@@ -11,11 +13,72 @@
   padding-block: 0.85em;
   border-block-start: var(--ds-hairline) solid var(--ds-color-line);
   break-inside: avoid;
+  /* Vertical centre of the first line of the role heading, measured from the item's top edge. */
+  --ds-timeline-dot-y: calc(0.85em + 0.68em);
+  position: relative;
 }
 
 .ds-experience__item:first-child {
+  --ds-timeline-dot-y: 0.68em;
   padding-block-start: 0;
   border-block-start: 0;
+}
+
+/* Timeline: one rail segment per item, joined end to end, with a dot at each job. */
+.ds-experience__item::before,
+.ds-experience__item::after {
+  position: absolute;
+  content: '';
+}
+
+.ds-experience__item::before {
+  inset-block: 0;
+  inset-inline-start: calc(-1 * var(--ds-timeline-gutter) + var(--ds-timeline-dot) / 2);
+  width: 0.08em;
+  margin-inline-start: -0.04em;
+  background: var(--ds-color-line-strong);
+}
+
+.ds-experience__item:first-child::before {
+  inset-block-start: var(--ds-timeline-dot-y);
+}
+
+.ds-experience__item:last-child::before {
+  inset-block-end: auto;
+  height: var(--ds-timeline-dot-y);
+}
+
+.ds-experience__item:only-child::before {
+  display: none;
+}
+
+.ds-experience__item::after {
+  inset-block-start: calc(var(--ds-timeline-dot-y) - var(--ds-timeline-dot) / 2);
+  inset-inline-start: calc(-1 * var(--ds-timeline-gutter));
+  width: var(--ds-timeline-dot);
+  height: var(--ds-timeline-dot);
+  border-radius: 50%;
+  background: var(--ds-color-accent);
+}
+
+/* The printed/paper CV keeps its plain hairline layout. */
+.ds-theme-paper .ds-experience {
+  padding-inline-start: 0;
+}
+
+.ds-theme-paper .ds-experience__item::before,
+.ds-theme-paper .ds-experience__item::after {
+  display: none;
+}
+
+@media print {
+  .ds-experience {
+    padding-inline-start: 0;
+  }
+  .ds-experience__item::before,
+  .ds-experience__item::after {
+    display: none;
+  }
 }
 
 .ds-experience__item > :not(.ds-experience__role, .ds-experience__period) {
