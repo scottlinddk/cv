@@ -27,7 +27,12 @@ export interface UiStrings {
   notFound: { title: string; body: string; link: string };
   create: {
     title: string;
+    sourceLabel: string;
+    sourceUrl: string;
+    sourceText: string;
     urlLabel: string;
+    textLabel: string;
+    textPlaceholder: string;
     urlPlaceholder: string;
     accessCodeLabel: string;
     submit: string;
@@ -70,7 +75,12 @@ const en: UiStrings = {
   },
   create: {
     title: 'Draft an application',
+    sourceLabel: 'Job posting',
+    sourceUrl: 'Link',
+    sourceText: 'Paste text',
     urlLabel: 'Link to the job posting',
+    textLabel: 'Paste the job posting',
+    textPlaceholder: 'Paste the full text of the job posting here',
     urlPlaceholder: 'https://example.com/jobs/frontend-developer',
     accessCodeLabel: 'Access code',
     submit: 'Generate draft',
@@ -113,7 +123,12 @@ const da: UiStrings = {
   },
   create: {
     title: 'Lav et ansøgningsudkast',
+    sourceLabel: 'Jobopslag',
+    sourceUrl: 'Link',
+    sourceText: 'Indsæt tekst',
     urlLabel: 'Link til jobopslaget',
+    textLabel: 'Indsæt jobopslaget',
+    textPlaceholder: 'Indsæt hele teksten fra jobopslaget her',
     urlPlaceholder: 'https://eksempel.dk/job/frontend-udvikler',
     accessCodeLabel: 'Adgangskode',
     submit: 'Lav udkast',

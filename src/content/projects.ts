@@ -93,5 +93,5 @@ export const projects: Project[] = [
     },
     href: 'https://slaegt.scottlind.dk',
     links: [{ label: { en: 'Live site', da: 'Live site' }, href: 'https://slaegt.scottlind.dk' }],
-  }
+  },
 ];

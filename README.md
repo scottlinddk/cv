@@ -31,7 +31,7 @@ First time on a machine: `npx playwright install chromium` (set `CHROMIUM_PATH` 
 
 ## Application drafts (`/create`)
 
-The page posts the job URL and a text summary of the CV (`src/features/application-draft/buildCandidateProfile.ts`) to the Vercel function `api/draft.ts`. The function fetches the posting (http/https only, public IPs only, redirects re-checked), asks Claude for a draft and returns `{ draft }`. The draft is written in the language of the posting.
+The page posts either the job URL or the pasted posting text, plus a text summary of the CV (`src/features/application-draft/buildCandidateProfile.ts`) to the Vercel function `api/draft.ts`. For a URL the function fetches the posting (http/https only, public IPs only, redirects re-checked); pasted text skips the fetch. It then asks Claude for a draft and returns `{ draft }`. The draft is written in the language of the posting.
 
 | Environment variable | Required | Purpose                                                                |
 | -------------------- | -------- | ---------------------------------------------------------------------- |
@@ -39,7 +39,7 @@ The page posts the job URL and a text summary of the CV (`src/features/applicati
 | `DRAFT_ACCESS_CODE`  | no       | When set, the page asks for this code. Recommended, the site is public |
 | `ANTHROPIC_MODEL`    | no       | Defaults to `claude-haiku-5-5`                                         |
 
-`npm run dev` only serves the frontend. To exercise `/api/draft` locally use `vercel dev`. Sites that render the posting in the browser or sit behind a login (LinkedIn, for example) cannot be read.
+`npm run dev` only serves the frontend. To exercise `/api/draft` locally use `vercel dev`. Sites that render the posting in the browser or sit behind a login (LinkedIn, for example) cannot be fetched, so paste the text instead.
 
 ## How print and PDF stay identical
 

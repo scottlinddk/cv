@@ -1,6 +1,6 @@
 import { useCallback, useRef, useState } from 'react';
 import { buildCandidateProfile } from './buildCandidateProfile';
-import { DraftError, requestDraft } from './draftApi';
+import { DraftError, requestDraft, type PostingSource } from './draftApi';
 
 export type DraftState =
   | { status: 'idle' }
@@ -12,11 +12,11 @@ export function useApplicationDraft() {
   const [state, setState] = useState<DraftState>({ status: 'idle' });
   const latest = useRef(0);
 
-  const generate = useCallback(async (url: string, accessCode?: string) => {
+  const generate = useCallback(async (source: PostingSource, accessCode?: string) => {
     const id = ++latest.current;
     setState({ status: 'loading' });
     try {
-      const draft = await requestDraft({ url, candidate: buildCandidateProfile(), accessCode });
+      const draft = await requestDraft({ source, candidate: buildCandidateProfile(), accessCode });
       if (id === latest.current) setState({ status: 'done', draft });
     } catch (error) {
       if (id !== latest.current) return;
