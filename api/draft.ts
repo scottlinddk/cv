@@ -1,5 +1,6 @@
 import Anthropic from '@anthropic-ai/sdk';
 import { JobFetchError, MAX_TEXT_CHARS, fetchJobPosting } from './_lib/fetchJobPosting.js';
+import { parseDraft } from './_lib/parseDraft.js';
 import { SYSTEM_PROMPT, buildUserMessage } from './_lib/prompt.js';
 
 const MODEL = process.env.ANTHROPIC_MODEL ?? 'claude-haiku-5-5';
@@ -64,12 +65,11 @@ export default {
         system: SYSTEM_PROMPT,
         messages: [{ role: 'user', content: buildUserMessage(body.candidate, jobPosting) }],
       });
-      const draft = message.content
-        .map((block) => (block.type === 'text' ? block.text : ''))
-        .join('')
-        .trim();
+      const { headline, draft } = parseDraft(
+        message.content.map((block) => (block.type === 'text' ? block.text : '')).join(''),
+      );
       if (!draft) return fail(502, 'empty_draft', 'The model returned no text.');
-      return json({ draft });
+      return json({ draft, headline });
     } catch (error) {
       console.error('draft generation failed', error);
       return fail(502, 'model_error', 'The draft could not be generated. Try again shortly.');

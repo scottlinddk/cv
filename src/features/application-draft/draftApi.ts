@@ -18,8 +18,18 @@ interface DraftInput {
   accessCode?: string;
 }
 
+export interface DraftResult {
+  draft: string;
+  /** Job-specific letter headline written by the model. Missing if the model skipped it. */
+  headline?: string;
+}
+
 /** Calls the /api/draft serverless function, which holds the Anthropic key. */
-export async function requestDraft({ source, candidate, accessCode }: DraftInput): Promise<string> {
+export async function requestDraft({
+  source,
+  candidate,
+  accessCode,
+}: DraftInput): Promise<DraftResult> {
   let response: Response;
   try {
     response = await fetch('/api/draft', {
@@ -39,6 +49,7 @@ export async function requestDraft({ source, candidate, accessCode }: DraftInput
 
   const data = (await response.json().catch(() => null)) as {
     draft?: string;
+    headline?: string;
     error?: string;
     message?: string;
   } | null;
@@ -46,5 +57,5 @@ export async function requestDraft({ source, candidate, accessCode }: DraftInput
   if (!response.ok || !data?.draft) {
     throw new DraftError(data?.error ?? 'unknown', data?.message ?? 'Something went wrong.');
   }
-  return data.draft;
+  return { draft: data.draft, headline: data.headline };
 }

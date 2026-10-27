@@ -39,7 +39,7 @@ The page posts either the job URL or the pasted posting text, plus a text summar
 | `DRAFT_ACCESS_CODE`  | no       | When set, the page asks for this code. Recommended, the site is public |
 | `ANTHROPIC_MODEL`    | no       | Defaults to `claude-haiku-5-5`                                         |
 
-Once a draft is generated it can be edited (headline, text, letter language) and exported as a cover letter (motiveret ansøgning). The `Letter` design-system component renders it on an A4 sheet in the same style as the CV header, and the Export PDF button opens the print dialog (choose "Save as PDF"). Only the letter is printed, everything else carries `ds-no-print`. Nothing is stored or sent to a server.
+The model also writes a job-specific headline (for example "Application: Senior Frontend Developer at Acme"), with a generic one as fallback. Once a draft is generated it can be edited (headline, text, letter language) and exported as a cover letter (motiveret ansøgning). The `Letter` design-system component renders it on an A4 sheet in the same style as the CV header, and the Export PDF button opens the print dialog (choose "Save as PDF"). Only the letter is printed, everything else carries `ds-no-print`. Nothing is stored or sent to a server.
 
 `npm run dev` only serves the frontend. To exercise `/api/draft` locally use `vercel dev`. Sites that render the posting in the browser or sit behind a login (LinkedIn, for example) cannot be fetched, so paste the text instead.
 

@@ -20,7 +20,7 @@ export function CreatePage() {
   const [copied, setCopied] = useState(false);
   // The letter follows the posting's language, so it is chosen separately from the site language.
   const [letterLocale, setLetterLocale] = useState<Locale>(locale);
-  // null means "untouched": the headline follows the language, the body follows the latest draft.
+  // null means "untouched": the headline follows the model's suggestion, the body follows the latest draft.
   const [headlineEdit, setHeadlineEdit] = useState<string | null>(null);
   const [bodyEdit, setBodyEdit] = useState<{ draft: string; body: string } | null>(null);
 
@@ -41,7 +41,8 @@ export function CreatePage() {
     setCopied(true);
   }
 
-  const headline = headlineEdit ?? ui[letterLocale].create.headlineDefault;
+  const suggestedHeadline = state.status === 'done' ? state.headline : undefined;
+  const headline = headlineEdit ?? suggestedHeadline ?? ui[letterLocale].create.headlineDefault;
   const bodyFor = (draft: string) => (bodyEdit?.draft === draft ? bodyEdit.body : draft);
 
   return (
