@@ -19,14 +19,14 @@
 }
 
 .ds-sheet__header {
-  padding-block-end: 1.3em;
+  padding-block-end: 1em;
   border-block-end: var(--ds-hairline) solid var(--ds-color-line-strong);
 }
 
 .ds-sheet__body {
   display: grid;
   grid-template-columns: 56mm minmax(0, 1fr);
-  margin-block-start: 1.3em;
+  margin-block-start: 1em;
 }
 
 .ds-sheet__sidebar {

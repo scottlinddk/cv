@@ -36,6 +36,24 @@
   color: var(--ds-color-ink-2);
 }
 
+/* The A4 sheet variant (portrait + aside): a compact header so more of the page is left for content. */
+.ds-profile--portrait.ds-profile--aside {
+  gap: 1.1em;
+}
+
+.ds-profile--portrait.ds-profile--aside .ds-profile__name {
+  font-size: 2.6em;
+}
+
+.ds-profile--portrait.ds-profile--aside .ds-profile__role {
+  margin-block: 0.2em 0.5em;
+}
+
+.ds-profile--portrait.ds-profile--aside .ds-profile__summary {
+  max-width: none;
+  line-height: 1.35;
+}
+
 @media (max-width: 48rem) {
   .ds-profile--portrait,
   .ds-profile--portrait.ds-profile--aside {
