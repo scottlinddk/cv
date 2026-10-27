@@ -1,9 +1,10 @@
 import Anthropic from '@anthropic-ai/sdk';
-import { JobFetchError, fetchJobPosting } from './_lib/fetchJobPosting.js';
+import { JobFetchError, MAX_TEXT_CHARS, fetchJobPosting } from './_lib/fetchJobPosting.js';
 import { SYSTEM_PROMPT, buildUserMessage } from './_lib/prompt.js';
 
 const MODEL = process.env.ANTHROPIC_MODEL ?? 'claude-haiku-5-5';
 const MAX_CANDIDATE_CHARS = 12_000;
+const MIN_PASTED_CHARS = 50;
 
 function json(body: unknown, status = 200): Response {
   return Response.json(body, { status, headers: { 'cache-control': 'no-store' } });
@@ -12,7 +13,9 @@ function json(body: unknown, status = 200): Response {
 const fail = (status: number, error: string, message: string) => json({ error, message }, status);
 
 interface DraftRequest {
+  /** The posting is either fetched from `url` or supplied directly as `text`. */
   url?: unknown;
+  text?: unknown;
   candidate?: unknown;
 }
 
@@ -30,19 +33,28 @@ export default {
     }
 
     const body = (await request.json().catch(() => null)) as DraftRequest | null;
-    if (typeof body?.url !== 'string' || typeof body.candidate !== 'string') {
-      return fail(400, 'invalid_request', 'Send { url, candidate } as strings.');
+    const hasUrl = typeof body?.url === 'string';
+    const hasText = typeof body?.text === 'string';
+    if (typeof body?.candidate !== 'string' || hasUrl === hasText) {
+      return fail(400, 'invalid_request', 'Send { candidate } and exactly one of { url, text }.');
     }
     if (!body.candidate.trim() || body.candidate.length > MAX_CANDIDATE_CHARS) {
       return fail(400, 'invalid_request', 'The candidate profile is empty or too long.');
     }
 
     let jobPosting: string;
-    try {
-      jobPosting = await fetchJobPosting(body.url.trim());
-    } catch (error) {
-      if (error instanceof JobFetchError) return fail(422, error.code, error.message);
-      throw error;
+    if (hasText) {
+      jobPosting = (body.text as string).trim().slice(0, MAX_TEXT_CHARS);
+      if (jobPosting.length < MIN_PASTED_CHARS) {
+        return fail(400, 'invalid_request', 'The pasted job posting is too short.');
+      }
+    } else {
+      try {
+        jobPosting = await fetchJobPosting((body.url as string).trim());
+      } catch (error) {
+        if (error instanceof JobFetchError) return fail(422, error.code, error.message);
+        throw error;
+      }
     }
 
     try {
