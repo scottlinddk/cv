@@ -45,10 +45,11 @@
   --ds-color-accent: var(--ds-caffeine-espresso);
   --ds-color-accent-text: var(--ds-caffeine-espresso);
   --ds-color-on-accent: #fff;
-  --ds-color-card: var(--ds-caffeine-peach);
-  --ds-color-card-ink: var(--ds-caffeine-roast);
-  --ds-color-card-muted: var(--ds-caffeine-espresso);
-  --ds-color-card-line: var(--ds-derived-peach-line);
+  --ds-color-card: #fff;
+  --ds-color-card-ink: var(--ds-neutral-900);
+  --ds-color-card-muted: var(--ds-neutral-600);
+  --ds-color-card-line: var(--ds-neutral-100);
+  --ds-shadow-card: 0 1px 2px rgb(0 0 0 / 0.04), 0 8px 24px rgb(0 0 0 / 0.07);
   color-scheme: light dark;
 }
 
@@ -70,6 +71,7 @@
     --ds-color-card-ink: var(--ds-caffeine-cream);
     --ds-color-card-muted: var(--ds-derived-mocha-muted);
     --ds-color-card-line: var(--ds-derived-mocha-line);
+    --ds-shadow-card: none;
   }
 }
 
@@ -90,6 +92,7 @@
   --ds-color-card-ink: var(--ds-caffeine-cream);
   --ds-color-card-muted: var(--ds-derived-mocha-muted);
   --ds-color-card-line: var(--ds-derived-mocha-line);
+  --ds-shadow-card: none;
 }
 
 /* The CV sheet is always paper-white, whatever the visitor's colour scheme. */
@@ -105,10 +108,11 @@
   --ds-color-accent: var(--ds-caffeine-espresso);
   --ds-color-accent-text: var(--ds-caffeine-espresso);
   --ds-color-on-accent: #fff;
-  --ds-color-card: var(--ds-caffeine-peach);
-  --ds-color-card-ink: var(--ds-caffeine-roast);
-  --ds-color-card-muted: var(--ds-caffeine-espresso);
-  --ds-color-card-line: var(--ds-derived-peach-line);
+  --ds-color-card: #fff;
+  --ds-color-card-ink: var(--ds-neutral-900);
+  --ds-color-card-muted: var(--ds-neutral-600);
+  --ds-color-card-line: var(--ds-neutral-100);
+  --ds-shadow-card: 0 1px 2px rgb(0 0 0 / 0.04), 0 8px 24px rgb(0 0 0 / 0.07);
   background: var(--ds-color-paper);
   color: var(--ds-color-ink);
 }
