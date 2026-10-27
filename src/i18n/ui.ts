@@ -41,6 +41,13 @@ export interface UiStrings {
     copy: string;
     copied: string;
     hint: string;
+    letterTitle: string;
+    letterLanguage: string;
+    headlineLabel: string;
+    headlineDefault: string;
+    bodyLabel: string;
+    exportPdf: string;
+    exportHint: string;
   };
 }
 
@@ -89,6 +96,14 @@ const en: UiStrings = {
     copy: 'Copy',
     copied: 'Copied',
     hint: 'The draft is built from the CV on this site and written in the language of the posting. Always review it before sending.',
+    letterTitle: 'Cover letter',
+    letterLanguage: 'Letter language',
+    headlineLabel: 'Headline',
+    headlineDefault: 'Cover letter',
+    bodyLabel: 'Text',
+    exportPdf: 'Export PDF',
+    exportHint:
+      'Opens the print dialog. Choose “Save as PDF” as the destination and turn off headers and footers.',
   },
 };
 
@@ -137,6 +152,14 @@ const da: UiStrings = {
     copy: 'Kopiér',
     copied: 'Kopieret',
     hint: 'Udkastet bygger på CV’et på siden og skrives på opslagets sprog. Læs det altid igennem, før du sender det.',
+    letterTitle: 'Motiveret ansøgning',
+    letterLanguage: 'Brevets sprog',
+    headlineLabel: 'Overskrift',
+    headlineDefault: 'Motiveret ansøgning',
+    bodyLabel: 'Tekst',
+    exportPdf: 'Eksportér PDF',
+    exportHint:
+      'Åbner udskriftsdialogen. Vælg “Gem som PDF” som destination, og slå sidehoved og sidefod fra.',
   },
 };
 
