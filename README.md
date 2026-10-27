@@ -27,21 +27,11 @@ First time on a machine: `npx playwright install chromium` (set `CHROMIUM_PATH` 
 - `/` redirects to `/da` or `/en` based on the browser language
 - `/:lang` web homepage
 - `/:lang/cv` the A4 CV document (screen preview, Ctrl+P source and PDF source)
-- `/create` paste a job posting URL and get an application draft written by Claude Haiku
+- `/create` write or paste a cover letter and export it as a PDF
 
-## Application drafts (`/create`)
+## Cover letter (`/create`)
 
-The page posts either the job URL or the pasted posting text, plus a text summary of the CV (`src/features/application-draft/buildCandidateProfile.ts`) to the Vercel function `api/draft.ts`. For a URL the function fetches the posting (http/https only, public IPs only, redirects re-checked); pasted text skips the fetch. It then asks Claude for a draft and returns `{ draft }`. The draft is written in the language of the posting.
-
-| Environment variable | Required | Purpose                                                                |
-| -------------------- | -------- | ---------------------------------------------------------------------- |
-| `ANTHROPIC_API_KEY`  | yes      | Server-side only, never sent to the browser                            |
-| `DRAFT_ACCESS_CODE`  | no       | When set, the page asks for this code. Recommended, the site is public |
-| `ANTHROPIC_MODEL`    | no       | Defaults to `claude-haiku-5-5`                                         |
-
-The model also writes a job-specific headline (for example "Application: Senior Frontend Developer at Acme"), with a generic one as fallback. Once a draft is generated it can be edited (headline, text, letter language) and exported as a cover letter (motiveret ansøgning). The `Letter` design-system component renders it on an A4 sheet in the same style as the CV header, and the Export PDF button opens the print dialog (choose "Save as PDF"). Only the letter is printed, everything else carries `ds-no-print`. Nothing is stored or sent to a server.
-
-`npm run dev` only serves the frontend. To exercise `/api/draft` locally use `vercel dev`. Sites that render the posting in the browser or sit behind a login (LinkedIn, for example) cannot be fetched, so paste the text instead.
+A small editor for a cover letter (motiveret ansøgning). Paste or write a headline and the text, pick the letter language (da/en), and the A4 letter appears below the form. The `Letter` design-system component renders it in the same style as the CV header, and the Export PDF button opens the print dialog (choose "Save as PDF"). Only the letter is printed, everything else carries `ds-no-print`. The page is not linked from the site, and nothing is stored or sent to a server.
 
 ## How print and PDF stay identical
 
