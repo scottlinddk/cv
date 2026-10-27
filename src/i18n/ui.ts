@@ -19,7 +19,10 @@ export interface UiStrings {
     print: string;
     backToSite: string;
     language: string;
+    allProjects: string;
+    visitSite: string;
   };
+  projectPage: { highlights: string; technologies: string; links: string };
   theme: { switchToLight: string; switchToDark: string };
   notFound: { title: string; body: string; link: string };
 }
@@ -43,7 +46,10 @@ const en: UiStrings = {
     print: 'Print',
     backToSite: 'Back to site',
     language: 'Language',
+    allProjects: 'All projects',
+    visitSite: 'Visit site',
   },
+  projectPage: { highlights: 'Highlights', technologies: 'Technologies', links: 'Links' },
   theme: { switchToLight: 'Switch to light mode', switchToDark: 'Switch to dark mode' },
   notFound: {
     title: 'Page not found',
@@ -71,7 +77,10 @@ const da: UiStrings = {
     print: 'Print',
     backToSite: 'Tilbage til siden',
     language: 'Sprog',
+    allProjects: 'Alle projekter',
+    visitSite: 'Besøg siden',
   },
+  projectPage: { highlights: 'Hovedpunkter', technologies: 'Teknologier', links: 'Links' },
   theme: { switchToLight: 'Skift til lys tilstand', switchToDark: 'Skift til mørk tilstand' },
   notFound: {
     title: 'Siden blev ikke fundet',

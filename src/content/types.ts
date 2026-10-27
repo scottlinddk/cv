@@ -70,6 +70,8 @@ export interface Project {
   name: string;
   description: Localized<string>;
   tech: string[];
+  /** Key points shown on the project's own page. */
+  highlights?: Localized<string[]>;
   /** Makes the name a link in the compact list used on the A4 CV. */
   href?: string;
   /** Short caption such as "2026 · Side project". */
