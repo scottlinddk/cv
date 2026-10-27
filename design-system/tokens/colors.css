@@ -1,84 +1,112 @@
 /*
- * Colour tokens. Warm "Running" palette (canvas, paper, ink, ember) with the CV's paper-white sheet.
- * Light is the default; dark follows the OS or [data-theme="dark"]. .ds-theme-paper pins light.
+ * Colour tokens. Caffeine palette (tweakcn "Caffeine"): neutral greys with espresso-brown primary
+ * and cream secondary. Light is the default; dark follows the OS or [data-theme="dark"].
+ * .ds-theme-paper pins light. Semantic tokens below only reference the primitives, so a rebrand is
+ * a change to this first block.
  */
 :root {
-  --ds-color-canvas: #f2ebdb;
+  --ds-caffeine-espresso: #644a40;
+  --ds-caffeine-cream: #ffe0c2;
+  --ds-caffeine-peach: #ffdfb5;
+  --ds-caffeine-roast: #582d1d;
+  --ds-caffeine-mocha: #393028;
+  --ds-caffeine-ink-dark: #081a1b;
+  --ds-neutral-50: #f9f9f9;
+  --ds-neutral-25: #fcfcfc;
+  --ds-neutral-100: #efefef;
+  --ds-neutral-200: #d8d8d8;
+  --ds-neutral-600: #646464;
+  --ds-neutral-900: #202020;
+  --ds-neutral-d-bg: #111;
+  --ds-neutral-d-card: #191919;
+  --ds-neutral-d-muted: #222;
+  --ds-neutral-d-fg: #eee;
+  --ds-neutral-d-muted-fg: #b4b4b4;
+  /* Derived from the palette to keep text and borders readable. */
+  --ds-derived-ink-2-light: #3b3b3b;
+  --ds-derived-ink-2-dark: #d2d2d2;
+  --ds-derived-line-strong-dark: #8c8c8c;
+  --ds-derived-peach-line: #d9b98f;
+  --ds-derived-mocha-line: #4d4136;
+}
+
+:root {
+  --ds-color-canvas: var(--ds-neutral-50);
   --ds-color-paper: #fff;
-  --ds-color-surface: #fbf6e8;
-  --ds-color-surface-2: #e8dfc8;
-  --ds-color-ink: #1a1612;
-  --ds-color-ink-2: #4a4239;
-  --ds-color-muted: #6b6152;
-  --ds-color-line: #d6cbb4;
-  --ds-color-line-strong: #4a4239;
-  --ds-color-accent: #dc4a1e;
-  --ds-color-accent-text: #b43a12;
+  --ds-color-surface: var(--ds-neutral-25);
+  --ds-color-surface-2: var(--ds-neutral-100);
+  --ds-color-ink: var(--ds-neutral-900);
+  --ds-color-ink-2: var(--ds-derived-ink-2-light);
+  --ds-color-muted: var(--ds-neutral-600);
+  --ds-color-line: var(--ds-neutral-200);
+  --ds-color-line-strong: var(--ds-neutral-600);
+  --ds-color-accent: var(--ds-caffeine-espresso);
+  --ds-color-accent-text: var(--ds-caffeine-espresso);
   --ds-color-on-accent: #fff;
-  --ds-color-card: #26211c;
-  --ds-color-card-ink: #f2ebdb;
-  --ds-color-card-muted: #b9ae98;
-  --ds-color-card-line: #3d352d;
+  --ds-color-card: var(--ds-caffeine-peach);
+  --ds-color-card-ink: var(--ds-caffeine-roast);
+  --ds-color-card-muted: var(--ds-caffeine-espresso);
+  --ds-color-card-line: var(--ds-derived-peach-line);
   color-scheme: light dark;
 }
 
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme='light']) {
-    --ds-color-canvas: #0f0d0b;
-    --ds-color-paper: #15110d;
-    --ds-color-surface: #1a1714;
-    --ds-color-surface-2: #221d18;
-    --ds-color-ink: #f2ebdb;
-    --ds-color-ink-2: #c9bfa8;
-    --ds-color-muted: #a09582;
-    --ds-color-line: #2f2924;
-    --ds-color-line-strong: #a8a29e;
-    --ds-color-accent: #f26a3d;
-    --ds-color-accent-text: #ff8a5f;
-    --ds-color-on-accent: #1a0f08;
-    --ds-color-card: #221d18;
-    --ds-color-card-ink: #f2ebdb;
-    --ds-color-card-muted: #a09582;
-    --ds-color-card-line: #3c342c;
+    --ds-color-canvas: var(--ds-neutral-d-bg);
+    --ds-color-paper: var(--ds-neutral-d-card);
+    --ds-color-surface: var(--ds-neutral-d-card);
+    --ds-color-surface-2: var(--ds-neutral-d-muted);
+    --ds-color-ink: var(--ds-neutral-d-fg);
+    --ds-color-ink-2: var(--ds-derived-ink-2-dark);
+    --ds-color-muted: var(--ds-neutral-d-muted-fg);
+    --ds-color-line: var(--ds-caffeine-mocha);
+    --ds-color-line-strong: var(--ds-derived-line-strong-dark);
+    --ds-color-accent: var(--ds-caffeine-cream);
+    --ds-color-accent-text: var(--ds-caffeine-cream);
+    --ds-color-on-accent: var(--ds-caffeine-ink-dark);
+    --ds-color-card: var(--ds-caffeine-mocha);
+    --ds-color-card-ink: var(--ds-caffeine-cream);
+    --ds-color-card-muted: var(--ds-neutral-d-muted-fg);
+    --ds-color-card-line: var(--ds-derived-mocha-line);
   }
 }
 
 :root[data-theme='dark'] {
-  --ds-color-canvas: #0f0d0b;
-  --ds-color-paper: #15110d;
-  --ds-color-surface: #1a1714;
-  --ds-color-surface-2: #221d18;
-  --ds-color-ink: #f2ebdb;
-  --ds-color-ink-2: #c9bfa8;
-  --ds-color-muted: #a09582;
-  --ds-color-line: #2f2924;
-  --ds-color-line-strong: #a8a29e;
-  --ds-color-accent: #f26a3d;
-  --ds-color-accent-text: #ff8a5f;
-  --ds-color-on-accent: #1a0f08;
-  --ds-color-card: #221d18;
-  --ds-color-card-ink: #f2ebdb;
-  --ds-color-card-muted: #a09582;
-  --ds-color-card-line: #3c342c;
+  --ds-color-canvas: var(--ds-neutral-d-bg);
+  --ds-color-paper: var(--ds-neutral-d-card);
+  --ds-color-surface: var(--ds-neutral-d-card);
+  --ds-color-surface-2: var(--ds-neutral-d-muted);
+  --ds-color-ink: var(--ds-neutral-d-fg);
+  --ds-color-ink-2: var(--ds-derived-ink-2-dark);
+  --ds-color-muted: var(--ds-neutral-d-muted-fg);
+  --ds-color-line: var(--ds-caffeine-mocha);
+  --ds-color-line-strong: var(--ds-derived-line-strong-dark);
+  --ds-color-accent: var(--ds-caffeine-cream);
+  --ds-color-accent-text: var(--ds-caffeine-cream);
+  --ds-color-on-accent: var(--ds-caffeine-ink-dark);
+  --ds-color-card: var(--ds-caffeine-mocha);
+  --ds-color-card-ink: var(--ds-caffeine-cream);
+  --ds-color-card-muted: var(--ds-neutral-d-muted-fg);
+  --ds-color-card-line: var(--ds-derived-mocha-line);
 }
 
 /* The CV sheet is always paper-white, whatever the visitor's colour scheme. */
 .ds-theme-paper {
   --ds-color-paper: #fff;
-  --ds-color-surface: #fbf6e8;
-  --ds-color-surface-2: #e8dfc8;
-  --ds-color-ink: #1a1612;
-  --ds-color-ink-2: #4a4239;
-  --ds-color-muted: #6b6152;
-  --ds-color-line: #d6cbb4;
-  --ds-color-line-strong: #4a4239;
-  --ds-color-accent: #dc4a1e;
-  --ds-color-accent-text: #b43a12;
+  --ds-color-surface: var(--ds-neutral-25);
+  --ds-color-surface-2: var(--ds-neutral-100);
+  --ds-color-ink: var(--ds-neutral-900);
+  --ds-color-ink-2: var(--ds-derived-ink-2-light);
+  --ds-color-muted: var(--ds-neutral-600);
+  --ds-color-line: var(--ds-neutral-200);
+  --ds-color-line-strong: var(--ds-neutral-600);
+  --ds-color-accent: var(--ds-caffeine-espresso);
+  --ds-color-accent-text: var(--ds-caffeine-espresso);
   --ds-color-on-accent: #fff;
-  --ds-color-card: #26211c;
-  --ds-color-card-ink: #f2ebdb;
-  --ds-color-card-muted: #b9ae98;
-  --ds-color-card-line: #3d352d;
+  --ds-color-card: var(--ds-caffeine-peach);
+  --ds-color-card-ink: var(--ds-caffeine-roast);
+  --ds-color-card-muted: var(--ds-caffeine-espresso);
+  --ds-color-card-line: var(--ds-derived-peach-line);
   background: var(--ds-color-paper);
   color: var(--ds-color-ink);
 }

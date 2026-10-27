@@ -1,10 +1,10 @@
 # CV design system: how to build with it
 
-Warm editorial CV system. Three things are non-negotiable: **ATS-friendly** (real text in reading order, no icon-only or image-only content), **PDF-ready** (A4 print rules ship with it) and **mobile-first** (everything collapses at 48rem). Components take plain data props and know nothing about routing or i18n: pass already-translated strings.
+Editorial CV system in the Caffeine palette (neutral greys, espresso-brown primary, cream secondary). Three things are non-negotiable: **ATS-friendly** (real text in reading order, no icon-only or image-only content), **PDF-ready** (A4 print rules ship with it) and **mobile-first** (everything collapses at 48rem). Components take plain data props and know nothing about routing or i18n: pass already-translated strings.
 
 ## Setup
 
-Load `styles.css` once (it imports the static Geist, Geist Mono and Instrument Serif fonts, all tokens, base styles and print rules). No provider is needed. Dark mode follows the OS or `<html data-theme="dark">`; `data-theme="light"` forces light. `ThemeSwitch` is a controlled Auto/Light/Dark pill group: the app stores the choice and sets `data-theme` (no attribute means follow the OS). The A4 `Sheet` is always paper-white.
+Load `styles.css` once (it imports the static Geist, Geist Mono and Instrument Serif fonts, all tokens, base styles and print rules). No provider is needed. Dark mode follows the OS or `<html data-theme="dark">`; `data-theme="light"` forces light. `ThemeSwitch` is a controlled sun/moon icon button (pass the scheme that is showing and an action label such as "Switch to dark mode"): the app stores the choice and sets `data-theme` (no attribute means follow the OS). The A4 `Sheet` is always paper-white.
 
 ```jsx
 const { Sheet, ProfileHeader, Portrait, Section, ExperienceList, TagList } = window.CvDesignSystem;

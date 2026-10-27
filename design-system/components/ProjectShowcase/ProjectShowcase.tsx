@@ -1,3 +1,4 @@
+import type { ElementType, ReactNode } from 'react';
 import { TagList } from '../TagList/TagList';
 import { cx } from '../../utils';
 import './ProjectShowcase.css';
@@ -16,12 +17,16 @@ export interface ProjectShowcaseItem {
   eyebrow?: string;
   tech?: readonly string[];
   links?: readonly ProjectShowcaseLink[];
+  /** Makes the name a link to the project's own page. */
+  detailHref?: string;
   /** Optional screenshot shown above the text. Decorative, so alt may be empty. */
   image?: { src: string; alt: string };
 }
 
 export interface ProjectShowcaseProps {
   items: readonly ProjectShowcaseItem[];
+  /** Swap the anchor used for `detailHref` for a router link component (it receives `to`). */
+  linkAs?: ElementType;
   className?: string;
 }
 
@@ -30,7 +35,23 @@ export interface ProjectShowcaseProps {
  * description, technologies and text links. Two columns on desktop, one on mobile. Cards never
  * split across printed pages.
  */
-export function ProjectShowcase({ items, className }: ProjectShowcaseProps) {
+export function ProjectShowcase({ items, linkAs, className }: ProjectShowcaseProps) {
+  const renderDetailLink = (href: string, children: ReactNode, className?: string) => {
+    if (linkAs) {
+      const Link = linkAs;
+      return (
+        <Link className={className} to={href}>
+          {children}
+        </Link>
+      );
+    }
+    return (
+      <a className={className} href={href}>
+        {children}
+      </a>
+    );
+  };
+
   return (
     <ul className={cx('ds-showcase', className)}>
       {items.map((project) => (
@@ -46,7 +67,11 @@ export function ProjectShowcase({ items, className }: ProjectShowcaseProps) {
             />
           )}
           {project.eyebrow && <p className="ds-showcase__eyebrow">{project.eyebrow}</p>}
-          <h3 className="ds-showcase__name">{project.name}</h3>
+          <h3 className="ds-showcase__name">
+            {project.detailHref
+              ? renderDetailLink(project.detailHref, project.name, 'ds-showcase__name-link')
+              : project.name}
+          </h3>
           <p className="ds-showcase__description">{project.description}</p>
           {project.tech && project.tech.length > 0 && <TagList items={project.tech} />}
           {project.links && project.links.length > 0 && (

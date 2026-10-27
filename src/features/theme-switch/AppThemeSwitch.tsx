@@ -8,14 +8,9 @@ export function AppThemeSwitch() {
 
   return (
     <ThemeSwitch
-      label={t.theme.label}
+      label={theme === 'dark' ? t.theme.switchToLight : t.theme.switchToDark}
       value={theme}
       onChange={setTheme}
-      options={[
-        { value: 'system', label: t.theme.system },
-        { value: 'light', label: t.theme.light },
-        { value: 'dark', label: t.theme.dark },
-      ]}
     />
   );
 }
