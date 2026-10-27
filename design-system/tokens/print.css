@@ -8,7 +8,7 @@
 
   @bottom-right {
     content: counter(page) ' / ' counter(pages);
-    color: #3f5c40;
+    color: #646464;
     font-family: 'Geist', system-ui, sans-serif;
     font-size: 8pt;
   }
@@ -20,26 +20,25 @@
     color-scheme: light;
     --ds-color-canvas: #fff;
     --ds-color-paper: #fff;
-    --ds-color-surface: #ecf4ed;
-    --ds-color-surface-2: #b0c6b3;
-    --ds-glow: none;
-    --ds-color-ink: #003200;
-    --ds-color-ink-2: #1f4a21;
-    --ds-color-muted: #3f5c40;
-    --ds-color-line: #b0c6b3;
-    --ds-color-line-strong: #5b755c;
-    --ds-color-accent: #00c445;
-    --ds-color-accent-text: #006b26;
+    --ds-color-surface: #fcfcfc;
+    --ds-color-surface-2: #efefef;
+    --ds-color-ink: #202020;
+    --ds-color-ink-2: #3b3b3b;
+    --ds-color-muted: #646464;
+    --ds-color-line: #d8d8d8;
+    --ds-color-line-strong: #646464;
+    --ds-color-accent: #644a40;
+    --ds-color-accent-text: #644a40;
     --ds-color-card: #fff;
-    --ds-color-card-ink: #003200;
-    --ds-color-card-muted: #1f4a21;
-    --ds-color-card-line: #5b755c;
+    --ds-color-card-ink: #202020;
+    --ds-color-card-muted: #3b3b3b;
+    --ds-color-card-line: #646464;
   }
 
   html,
   body {
     background: #fff;
-    color: #003200;
+    color: #202020;
   }
 
   * {

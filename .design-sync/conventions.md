@@ -1,6 +1,6 @@
 # CV design system: how to build with it
 
-Green editorial CV system (vibrant greens on deep forest, sage neutrals). Three things are non-negotiable: **ATS-friendly** (real text in reading order, no icon-only or image-only content), **PDF-ready** (A4 print rules ship with it) and **mobile-first** (everything collapses at 48rem). Components take plain data props and know nothing about routing or i18n: pass already-translated strings.
+Editorial CV system in the Caffeine palette (neutral greys, espresso-brown primary, cream secondary). Three things are non-negotiable: **ATS-friendly** (real text in reading order, no icon-only or image-only content), **PDF-ready** (A4 print rules ship with it) and **mobile-first** (everything collapses at 48rem). Components take plain data props and know nothing about routing or i18n: pass already-translated strings.
 
 ## Setup
 

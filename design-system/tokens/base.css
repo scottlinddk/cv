@@ -12,10 +12,7 @@ html {
 
 body {
   margin: 0;
-  background:
-    var(--ds-glow, none) fixed no-repeat,
-    var(--ds-color-canvas);
-  min-height: 100vh;
+  background: var(--ds-color-canvas);
   color: var(--ds-color-ink);
   font-family: var(--ds-font-sans);
   font-size: 1rem;

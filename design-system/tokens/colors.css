@@ -1,114 +1,112 @@
 /*
- * Colour tokens. Brand palette: vibrant greens on deep forest, with soft sage neutrals.
- * Light is the default; dark (the inverse: forest canvas, sage ink, neon accent) follows the OS or
- * [data-theme="dark"]. .ds-theme-paper pins light. Semantic tokens below only reference the brand
- * primitives, so a rebrand is a change to this first block.
+ * Colour tokens. Caffeine palette (tweakcn "Caffeine"): neutral greys with espresso-brown primary
+ * and cream secondary. Light is the default; dark follows the OS or [data-theme="dark"].
+ * .ds-theme-paper pins light. Semantic tokens below only reference the primitives, so a rebrand is
+ * a change to this first block.
  */
 :root {
-  --ds-brand-green: #00c445;
-  --ds-brand-green-bright: #00d759;
-  --ds-brand-green-neon: #00ff7e;
-  --ds-brand-forest: #003200;
-  --ds-brand-sage-700: #5b755c;
-  --ds-brand-sage-500: #779178;
-  --ds-brand-sage-300: #b0c6b3;
-  --ds-brand-sage-100: #d9e8db;
-  /* Derived from the brand colours to reach WCAG AA for text, plus a paper tint. */
-  --ds-brand-green-deep: #006b26;
-  --ds-brand-sage-900: #3f5c40;
-  --ds-brand-mist: #ecf4ed;
+  --ds-caffeine-espresso: #644a40;
+  --ds-caffeine-cream: #ffe0c2;
+  --ds-caffeine-peach: #ffdfb5;
+  --ds-caffeine-roast: #582d1d;
+  --ds-caffeine-mocha: #393028;
+  --ds-caffeine-ink-dark: #081a1b;
+  --ds-neutral-50: #f9f9f9;
+  --ds-neutral-25: #fcfcfc;
+  --ds-neutral-100: #efefef;
+  --ds-neutral-200: #d8d8d8;
+  --ds-neutral-600: #646464;
+  --ds-neutral-900: #202020;
+  --ds-neutral-d-bg: #111;
+  --ds-neutral-d-card: #191919;
+  --ds-neutral-d-muted: #222;
+  --ds-neutral-d-fg: #eee;
+  --ds-neutral-d-muted-fg: #b4b4b4;
+  /* Derived from the palette to keep text and borders readable. */
+  --ds-derived-ink-2-light: #3b3b3b;
+  --ds-derived-ink-2-dark: #d2d2d2;
+  --ds-derived-line-strong-dark: #8c8c8c;
+  --ds-derived-peach-line: #d9b98f;
+  --ds-derived-mocha-line: #4d4136;
 }
 
 :root {
-  --ds-color-canvas: var(--ds-brand-sage-100);
+  --ds-color-canvas: var(--ds-neutral-50);
   --ds-color-paper: #fff;
-  --ds-color-surface: #fff;
-  --ds-color-surface-2: var(--ds-brand-sage-300);
-  --ds-color-ink: var(--ds-brand-forest);
-  --ds-color-ink-2: #1f4a21;
-  --ds-color-muted: var(--ds-brand-sage-900);
-  --ds-color-line: var(--ds-brand-sage-300);
-  --ds-color-line-strong: var(--ds-brand-sage-700);
-  --ds-color-accent: var(--ds-brand-green);
-  --ds-color-accent-text: var(--ds-brand-green-deep);
-  --ds-color-on-accent: var(--ds-brand-forest);
-  --ds-color-card: var(--ds-brand-forest);
-  --ds-color-card-ink: var(--ds-brand-sage-100);
-  --ds-color-card-muted: var(--ds-brand-sage-300);
-  --ds-color-card-line: #1f4a21;
-  --ds-glow: none;
+  --ds-color-surface: var(--ds-neutral-25);
+  --ds-color-surface-2: var(--ds-neutral-100);
+  --ds-color-ink: var(--ds-neutral-900);
+  --ds-color-ink-2: var(--ds-derived-ink-2-light);
+  --ds-color-muted: var(--ds-neutral-600);
+  --ds-color-line: var(--ds-neutral-200);
+  --ds-color-line-strong: var(--ds-neutral-600);
+  --ds-color-accent: var(--ds-caffeine-espresso);
+  --ds-color-accent-text: var(--ds-caffeine-espresso);
+  --ds-color-on-accent: #fff;
+  --ds-color-card: var(--ds-caffeine-peach);
+  --ds-color-card-ink: var(--ds-caffeine-roast);
+  --ds-color-card-muted: var(--ds-caffeine-espresso);
+  --ds-color-card-line: var(--ds-derived-peach-line);
   color-scheme: light dark;
 }
 
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme='light']) {
-    --ds-glow: radial-gradient(
-      90% 55% at 50% 108%,
-      rgb(0 255 126 / 0.2),
-      rgb(0 50 0 / 0.45) 45%,
-      transparent 75%
-    );
-    --ds-color-canvas: #030a04;
-    --ds-color-paper: #07130a;
-    --ds-color-surface: rgb(217 232 219 / 0.06);
-    --ds-color-surface-2: rgb(217 232 219 / 0.12);
-    --ds-color-ink: var(--ds-brand-sage-100);
-    --ds-color-ink-2: var(--ds-brand-sage-300);
-    --ds-color-muted: #9db5a0;
-    --ds-color-line: rgb(217 232 219 / 0.14);
-    --ds-color-line-strong: var(--ds-brand-sage-500);
-    --ds-color-accent: var(--ds-brand-green-neon);
-    --ds-color-accent-text: var(--ds-brand-green-neon);
-    --ds-color-on-accent: var(--ds-brand-forest);
-    --ds-color-card: rgb(0 50 0 / 0.55);
-    --ds-color-card-ink: var(--ds-brand-sage-100);
-    --ds-color-card-muted: var(--ds-brand-sage-300);
-    --ds-color-card-line: rgb(217 232 219 / 0.16);
+    --ds-color-canvas: var(--ds-neutral-d-bg);
+    --ds-color-paper: var(--ds-neutral-d-card);
+    --ds-color-surface: var(--ds-neutral-d-card);
+    --ds-color-surface-2: var(--ds-neutral-d-muted);
+    --ds-color-ink: var(--ds-neutral-d-fg);
+    --ds-color-ink-2: var(--ds-derived-ink-2-dark);
+    --ds-color-muted: var(--ds-neutral-d-muted-fg);
+    --ds-color-line: var(--ds-caffeine-mocha);
+    --ds-color-line-strong: var(--ds-derived-line-strong-dark);
+    --ds-color-accent: var(--ds-caffeine-cream);
+    --ds-color-accent-text: var(--ds-caffeine-cream);
+    --ds-color-on-accent: var(--ds-caffeine-ink-dark);
+    --ds-color-card: var(--ds-caffeine-mocha);
+    --ds-color-card-ink: var(--ds-caffeine-cream);
+    --ds-color-card-muted: var(--ds-neutral-d-muted-fg);
+    --ds-color-card-line: var(--ds-derived-mocha-line);
   }
 }
 
 :root[data-theme='dark'] {
-  --ds-glow: radial-gradient(
-    90% 55% at 50% 108%,
-    rgb(0 255 126 / 0.2),
-    rgb(0 50 0 / 0.45) 45%,
-    transparent 75%
-  );
-  --ds-color-canvas: #030a04;
-  --ds-color-paper: #07130a;
-  --ds-color-surface: rgb(217 232 219 / 0.06);
-  --ds-color-surface-2: rgb(217 232 219 / 0.12);
-  --ds-color-ink: var(--ds-brand-sage-100);
-  --ds-color-ink-2: var(--ds-brand-sage-300);
-  --ds-color-muted: #9db5a0;
-  --ds-color-line: rgb(217 232 219 / 0.14);
-  --ds-color-line-strong: var(--ds-brand-sage-500);
-  --ds-color-accent: var(--ds-brand-green-neon);
-  --ds-color-accent-text: var(--ds-brand-green-neon);
-  --ds-color-on-accent: var(--ds-brand-forest);
-  --ds-color-card: rgb(0 50 0 / 0.55);
-  --ds-color-card-ink: var(--ds-brand-sage-100);
-  --ds-color-card-muted: var(--ds-brand-sage-300);
-  --ds-color-card-line: rgb(217 232 219 / 0.16);
+  --ds-color-canvas: var(--ds-neutral-d-bg);
+  --ds-color-paper: var(--ds-neutral-d-card);
+  --ds-color-surface: var(--ds-neutral-d-card);
+  --ds-color-surface-2: var(--ds-neutral-d-muted);
+  --ds-color-ink: var(--ds-neutral-d-fg);
+  --ds-color-ink-2: var(--ds-derived-ink-2-dark);
+  --ds-color-muted: var(--ds-neutral-d-muted-fg);
+  --ds-color-line: var(--ds-caffeine-mocha);
+  --ds-color-line-strong: var(--ds-derived-line-strong-dark);
+  --ds-color-accent: var(--ds-caffeine-cream);
+  --ds-color-accent-text: var(--ds-caffeine-cream);
+  --ds-color-on-accent: var(--ds-caffeine-ink-dark);
+  --ds-color-card: var(--ds-caffeine-mocha);
+  --ds-color-card-ink: var(--ds-caffeine-cream);
+  --ds-color-card-muted: var(--ds-neutral-d-muted-fg);
+  --ds-color-card-line: var(--ds-derived-mocha-line);
 }
 
 /* The CV sheet is always paper-white, whatever the visitor's colour scheme. */
 .ds-theme-paper {
   --ds-color-paper: #fff;
-  --ds-color-surface: #fff;
-  --ds-color-surface-2: var(--ds-brand-sage-300);
-  --ds-color-ink: var(--ds-brand-forest);
-  --ds-color-ink-2: #1f4a21;
-  --ds-color-muted: var(--ds-brand-sage-900);
-  --ds-color-line: var(--ds-brand-sage-300);
-  --ds-color-line-strong: var(--ds-brand-sage-700);
-  --ds-color-accent: var(--ds-brand-green);
-  --ds-color-accent-text: var(--ds-brand-green-deep);
-  --ds-color-on-accent: var(--ds-brand-forest);
-  --ds-color-card: var(--ds-brand-forest);
-  --ds-color-card-ink: var(--ds-brand-sage-100);
-  --ds-color-card-muted: var(--ds-brand-sage-300);
-  --ds-color-card-line: #1f4a21;
+  --ds-color-surface: var(--ds-neutral-25);
+  --ds-color-surface-2: var(--ds-neutral-100);
+  --ds-color-ink: var(--ds-neutral-900);
+  --ds-color-ink-2: var(--ds-derived-ink-2-light);
+  --ds-color-muted: var(--ds-neutral-600);
+  --ds-color-line: var(--ds-neutral-200);
+  --ds-color-line-strong: var(--ds-neutral-600);
+  --ds-color-accent: var(--ds-caffeine-espresso);
+  --ds-color-accent-text: var(--ds-caffeine-espresso);
+  --ds-color-on-accent: #fff;
+  --ds-color-card: var(--ds-caffeine-peach);
+  --ds-color-card-ink: var(--ds-caffeine-roast);
+  --ds-color-card-muted: var(--ds-caffeine-espresso);
+  --ds-color-card-line: var(--ds-derived-peach-line);
   background: var(--ds-color-paper);
   color: var(--ds-color-ink);
 }
