@@ -1,0 +1,44 @@
+.ds-education {
+  display: grid;
+  gap: 0.9em;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.ds-education__item {
+  break-inside: avoid;
+}
+
+.ds-education__institution {
+  margin: 0;
+  font-size: 1em;
+  font-weight: 600;
+}
+
+.ds-education__degree {
+  margin: 0.1em 0 0;
+  color: var(--ds-color-ink-2);
+}
+
+.ds-education__period {
+  margin: 0.1em 0 0;
+  color: var(--ds-color-muted);
+  font-family: var(--ds-font-mono);
+  font-size: 0.85em;
+}
+
+.ds-education__highlights {
+  margin: 0.4em 0 0;
+  padding-inline-start: 1.1em;
+  color: var(--ds-color-ink-2);
+  list-style: disc;
+}
+
+.ds-education__highlights li {
+  margin-block: 0.2em;
+}
+
+.ds-education__highlights li::marker {
+  color: var(--ds-color-accent);
+}

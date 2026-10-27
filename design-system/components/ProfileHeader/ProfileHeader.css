@@ -1,0 +1,44 @@
+.ds-profile {
+  display: grid;
+  align-items: start;
+  gap: 1.4em;
+  break-inside: avoid;
+}
+
+.ds-profile--portrait {
+  grid-template-columns: auto minmax(0, 1fr);
+}
+
+.ds-profile--portrait.ds-profile--aside {
+  grid-template-columns: auto minmax(0, 1fr) 48mm;
+}
+
+.ds-profile__name {
+  font-family: var(--ds-font-display);
+  font-size: clamp(2.25em, 6vw, 3.4em);
+  font-weight: 400;
+  font-synthesis: none;
+  letter-spacing: -0.01em;
+  line-height: var(--ds-leading-tight);
+}
+
+.ds-profile__role {
+  margin: 0.35em 0 0.9em;
+  color: var(--ds-color-accent-text);
+  font-family: var(--ds-font-mono);
+  font-size: 1em;
+  letter-spacing: var(--ds-tracking-label);
+  text-transform: uppercase;
+}
+
+.ds-profile__summary {
+  max-width: 62ch;
+  color: var(--ds-color-ink-2);
+}
+
+@media (max-width: 48rem) {
+  .ds-profile--portrait,
+  .ds-profile--portrait.ds-profile--aside {
+    grid-template-columns: 1fr;
+  }
+}

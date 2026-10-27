@@ -1,0 +1,31 @@
+.ds-button {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.4em 1em;
+  border: var(--ds-hairline) solid var(--ds-color-line-strong);
+  border-radius: var(--ds-radius-pill);
+  background: transparent;
+  color: var(--ds-color-ink);
+  font-family: var(--ds-font-mono);
+  font-size: 0.8125rem;
+  letter-spacing: var(--ds-tracking-label);
+  text-decoration: none;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.ds-button:hover {
+  border-color: var(--ds-color-accent);
+  color: var(--ds-color-accent-text);
+}
+
+.ds-button--primary {
+  border-color: var(--ds-color-accent);
+  background: var(--ds-color-accent);
+  color: var(--ds-color-on-accent);
+}
+
+.ds-button--primary:hover {
+  color: var(--ds-color-on-accent);
+  filter: brightness(0.92);
+}

@@ -1,0 +1,82 @@
+.ds-sheet-stage {
+  padding: 1.5rem 1rem 3rem;
+  background-color: var(--ds-color-canvas);
+  background-image: radial-gradient(rgb(0 0 0 / 0.09) 1px, transparent 1px);
+  background-size: 18px 18px;
+}
+
+.ds-sheet {
+  width: min(210mm, 100%);
+  min-height: 297mm;
+  margin-inline: auto;
+  padding: 12mm 12mm 16mm;
+  border-radius: 20px;
+  box-shadow: 0 2px 20px rgb(0 0 0 / 0.12);
+  /* Everything inside is sized in em, so the whole document scales from this one value. */
+  font-family: var(--ds-font-sans);
+  font-size: 8.8pt;
+  line-height: 1.45;
+}
+
+.ds-sheet__header {
+  padding-block-end: 1.3em;
+  border-block-end: var(--ds-hairline) solid var(--ds-color-line-strong);
+}
+
+.ds-sheet__body {
+  display: grid;
+  grid-template-columns: 56mm minmax(0, 1fr);
+  margin-block-start: 1.3em;
+}
+
+.ds-sheet__sidebar {
+  padding-inline-end: 2em;
+}
+
+.ds-sheet__main {
+  padding-inline-start: 2em;
+  border-inline-start: var(--ds-hairline) solid var(--ds-color-line);
+}
+
+.ds-sheet__sidebar > section + section,
+.ds-sheet__main > section + section {
+  margin-block-start: 1.1em;
+  padding-block-start: 1.1em;
+  border-block-start: var(--ds-hairline) solid var(--ds-color-line);
+}
+
+@media (max-width: 48rem) {
+  .ds-sheet {
+    min-height: 0;
+    padding: 1rem;
+    font-size: 1rem;
+  }
+  .ds-sheet__body {
+    grid-template-columns: 1fr;
+  }
+  .ds-sheet__sidebar {
+    padding-inline-end: 0;
+    padding-block-end: 1.6em;
+  }
+  .ds-sheet__main {
+    padding-block-start: 1.6em;
+    padding-inline-start: 0;
+    border-block-start: var(--ds-hairline) solid var(--ds-color-line);
+    border-inline-start: 0;
+  }
+}
+
+@media print {
+  .ds-sheet-stage {
+    padding: 0;
+    background: none;
+  }
+  .ds-sheet {
+    width: auto;
+    min-height: 0;
+    margin: 0;
+    padding: 0;
+    border-radius: 0;
+    box-shadow: none;
+  }
+}

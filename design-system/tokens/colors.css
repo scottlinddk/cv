@@ -1,0 +1,84 @@
+/*
+ * Colour tokens. Warm "Running" palette (canvas, paper, ink, ember) with the CV's paper-white sheet.
+ * Light is the default; dark follows the OS or [data-theme="dark"]. .ds-theme-paper pins light.
+ */
+:root {
+  --ds-color-canvas: #f2ebdb;
+  --ds-color-paper: #fff;
+  --ds-color-surface: #fbf6e8;
+  --ds-color-surface-2: #e8dfc8;
+  --ds-color-ink: #1a1612;
+  --ds-color-ink-2: #4a4239;
+  --ds-color-muted: #6b6152;
+  --ds-color-line: #d6cbb4;
+  --ds-color-line-strong: #4a4239;
+  --ds-color-accent: #dc4a1e;
+  --ds-color-accent-text: #b43a12;
+  --ds-color-on-accent: #fff;
+  --ds-color-card: #26211c;
+  --ds-color-card-ink: #f2ebdb;
+  --ds-color-card-muted: #b9ae98;
+  --ds-color-card-line: #3d352d;
+  color-scheme: light dark;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    --ds-color-canvas: #0f0d0b;
+    --ds-color-paper: #15110d;
+    --ds-color-surface: #1a1714;
+    --ds-color-surface-2: #221d18;
+    --ds-color-ink: #f2ebdb;
+    --ds-color-ink-2: #c9bfa8;
+    --ds-color-muted: #a09582;
+    --ds-color-line: #2f2924;
+    --ds-color-line-strong: #a8a29e;
+    --ds-color-accent: #f26a3d;
+    --ds-color-accent-text: #ff8a5f;
+    --ds-color-on-accent: #1a0f08;
+    --ds-color-card: #221d18;
+    --ds-color-card-ink: #f2ebdb;
+    --ds-color-card-muted: #a09582;
+    --ds-color-card-line: #3c342c;
+  }
+}
+
+:root[data-theme='dark'] {
+  --ds-color-canvas: #0f0d0b;
+  --ds-color-paper: #15110d;
+  --ds-color-surface: #1a1714;
+  --ds-color-surface-2: #221d18;
+  --ds-color-ink: #f2ebdb;
+  --ds-color-ink-2: #c9bfa8;
+  --ds-color-muted: #a09582;
+  --ds-color-line: #2f2924;
+  --ds-color-line-strong: #a8a29e;
+  --ds-color-accent: #f26a3d;
+  --ds-color-accent-text: #ff8a5f;
+  --ds-color-on-accent: #1a0f08;
+  --ds-color-card: #221d18;
+  --ds-color-card-ink: #f2ebdb;
+  --ds-color-card-muted: #a09582;
+  --ds-color-card-line: #3c342c;
+}
+
+/* The CV sheet is always paper-white, whatever the visitor's colour scheme. */
+.ds-theme-paper {
+  --ds-color-paper: #fff;
+  --ds-color-surface: #fbf6e8;
+  --ds-color-surface-2: #e8dfc8;
+  --ds-color-ink: #1a1612;
+  --ds-color-ink-2: #4a4239;
+  --ds-color-muted: #6b6152;
+  --ds-color-line: #d6cbb4;
+  --ds-color-line-strong: #4a4239;
+  --ds-color-accent: #dc4a1e;
+  --ds-color-accent-text: #b43a12;
+  --ds-color-on-accent: #fff;
+  --ds-color-card: #26211c;
+  --ds-color-card-ink: #f2ebdb;
+  --ds-color-card-muted: #b9ae98;
+  --ds-color-card-line: #3d352d;
+  background: var(--ds-color-paper);
+  color: var(--ds-color-ink);
+}

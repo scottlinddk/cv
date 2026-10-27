@@ -1,0 +1,16 @@
+:root {
+  --ds-font-display: 'Instrument Serif', 'Times New Roman', serif;
+  --ds-font-sans: 'Geist', 'Helvetica Neue', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --ds-font-mono: 'Geist Mono', ui-monospace, 'SFMono-Regular', Menlo, monospace;
+
+  --ds-text-label: 0.75em;
+  --ds-text-small: 0.875em;
+  --ds-text-body: 1em;
+  --ds-text-lead: 1.125em;
+  --ds-text-title: clamp(2.25rem, 6vw, 3.5rem);
+
+  --ds-leading-tight: 1.1;
+  --ds-leading-body: 1.55;
+  /* Keep tracking tiny: wide letter-spacing makes PDF text extraction read "E X P E R I E N C E". */
+  --ds-tracking-label: 0.04em;
+}

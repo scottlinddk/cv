@@ -1,0 +1,37 @@
+.ds-split {
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  gap: var(--ds-space-7);
+  width: 100%;
+  max-width: var(--ds-page-max);
+  margin-inline: auto;
+  padding: var(--ds-space-6) var(--ds-gutter) var(--ds-space-8);
+}
+
+.ds-split__aside {
+  position: sticky;
+  top: var(--ds-space-6);
+  align-self: start;
+  display: grid;
+  gap: var(--ds-space-4);
+}
+
+.ds-split__main {
+  display: grid;
+  gap: var(--ds-space-7);
+  min-width: 0;
+}
+
+.ds-split__main > .ds-section {
+  margin: 0;
+}
+
+@media (max-width: 48rem) {
+  .ds-split {
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--ds-space-6);
+  }
+  .ds-split__aside {
+    position: static;
+  }
+}

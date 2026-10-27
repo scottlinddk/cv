@@ -1,0 +1,27 @@
+.ds-links {
+  padding-block-start: 1.2em;
+  border-block-start: var(--ds-hairline) solid var(--ds-color-line);
+}
+
+.ds-links__list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(15em, 1fr));
+  gap: 0.6em 1.5em;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-family: var(--ds-font-mono);
+  font-size: var(--ds-text-small);
+  letter-spacing: var(--ds-tracking-label);
+}
+
+.ds-links__list a {
+  color: var(--ds-color-ink);
+  text-decoration: none;
+  overflow-wrap: anywhere;
+}
+
+.ds-links__list a:hover {
+  color: var(--ds-color-accent-text);
+  text-decoration: underline;
+}

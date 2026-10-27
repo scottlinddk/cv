@@ -1,0 +1,31 @@
+.ds-skills--list {
+  display: grid;
+  gap: 0.9em;
+}
+
+.ds-skills__group {
+  break-inside: avoid;
+}
+
+.ds-skills__label {
+  margin: 0 0 0.35em;
+  font-size: 1em;
+  font-weight: 600;
+}
+
+.ds-skills--cards {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.6em;
+}
+
+/* An odd last card spans the row so the grid never ends with a gap. */
+.ds-skills--cards > :last-child:nth-child(odd) {
+  grid-column: 1 / -1;
+}
+
+@media (max-width: 48rem) {
+  .ds-skills--cards {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

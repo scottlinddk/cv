@@ -1,0 +1,25 @@
+.ds-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3em 0.4em;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.ds-tags__tag {
+  padding: 0.1em 0.6em;
+  border: 0.06em solid var(--ds-color-line);
+  border-radius: var(--ds-radius-pill);
+  background: var(--ds-color-surface);
+  color: var(--ds-color-ink-2);
+  font-family: var(--ds-font-mono);
+  font-size: 0.8em;
+  white-space: nowrap;
+}
+
+.ds-card .ds-tags__tag {
+  border-color: var(--ds-color-card-line);
+  background: transparent;
+  color: var(--ds-color-card-muted);
+}

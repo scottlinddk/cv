@@ -1,0 +1,48 @@
+{
+  "pkg": "@scottlind/cv-design-system",
+  "globalName": "CvDesignSystem",
+  "shape": "package",
+  "buildCmd": "npm run build:ds",
+  "srcDir": "components",
+  "tsconfig": "tsconfig.json",
+  "cssEntry": "dist/style.css",
+  "extraFonts": ["tokens/fonts.css"],
+  "overrides": {
+    "Sheet": {
+      "cardMode": "single",
+      "viewport": "900x1200"
+    },
+    "SplitLayout": {
+      "cardMode": "single",
+      "viewport": "1100x700"
+    },
+    "Toolbar": {
+      "cardMode": "column"
+    },
+    "ExperienceList": {
+      "cardMode": "column"
+    },
+    "ProfileHeader": {
+      "cardMode": "column"
+    },
+    "Card": {
+      "cardMode": "column"
+    },
+    "Section": {
+      "cardMode": "column"
+    },
+    "TagList": {
+      "cardMode": "column"
+    },
+    "Portrait": {
+      "cardMode": "column"
+    },
+    "ContactList": {
+      "cardMode": "column"
+    },
+    "SkillGroups": {
+      "cardMode": "column"
+    }
+  },
+  "readmeHeader": ".design-sync/conventions.md"
+}

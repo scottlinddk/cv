@@ -16,6 +16,12 @@ Danish and English. Content lives in `src/content/` (Danish and English).
 
 First time on a machine: `npx playwright install chromium` (set `CHROMIUM_PATH` to use another Chromium).
 
+## Design system
+
+`design-system/` is a self-contained, content-agnostic React component library (tokens, fonts, print rules and 18 components) that the site is built from. It mixes the CV's paper sheet, the "Running" warm palette and an editorial mono/serif look, and stays ATS-friendly, A4/PDF-ready and mobile-first. Components take plain props; `src/features/*` adapt the typed content in `src/content/` to them. Conventions for building with it are in `.design-sync/conventions.md`.
+
+`npm run build:ds` builds the library (`design-system/dist/`) for syncing to Claude Design with `/design-sync`.
+
 ## Routes
 
 - `/` redirects to `/da` or `/en` based on the browser language
@@ -30,7 +36,7 @@ rules directly, and `scripts/build-pdf.ts` prints the same page with Chromium, s
 and a browser print match. The Download button serves the pre-built PDF rather than generating one
 client-side, which keeps text real and selectable.
 
-Fonts are self-hosted **static** Inter weights. Variable fonts make Chromium embed Type 3 glyphs, which
+Fonts are self-hosted **static** Geist, Geist Mono and Instrument Serif weights. Variable fonts make Chromium embed Type 3 glyphs, which
 hurts text extraction, so avoid them for anything that ends up in the PDF.
 
 ## Editing content

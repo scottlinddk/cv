@@ -1,10 +1,11 @@
+/* App-level glue only. Everything visual comes from the design system's tokens and components. */
 .skip {
   position: absolute;
   inset-inline-start: 1rem;
   inset-block-start: -4rem;
   padding: 0.5rem 1rem;
-  background: var(--color-accent);
-  color: var(--color-on-accent);
+  background: var(--ds-color-accent);
+  color: var(--ds-color-on-accent);
 }
 
 .skip:focus {
@@ -16,13 +17,33 @@
   align-items: center;
   justify-content: flex-end;
   gap: 1rem;
-  max-width: 56rem;
+  max-width: var(--ds-page-max);
   margin-inline: auto;
-  padding: 1rem;
+  padding: 1rem var(--ds-gutter);
+  font-family: var(--ds-font-mono);
+  font-size: 0.8125rem;
+  text-transform: uppercase;
 }
 
-.main {
-  max-width: 56rem;
-  margin-inline: auto;
-  padding: 0 1rem 4rem;
+.header a:not([lang]) {
+  color: var(--ds-color-ink);
+  text-decoration: none;
+}
+
+.intro {
+  display: grid;
+  gap: var(--ds-space-5);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.caption {
+  color: var(--ds-color-muted);
+  font-family: var(--ds-font-mono);
+  font-size: 0.8125rem;
+  text-transform: uppercase;
 }
