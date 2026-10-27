@@ -1,21 +1,18 @@
 .ds-themeswitch {
   display: inline-flex;
-  gap: 0.25rem;
-}
-
-.ds-themeswitch__option {
-  padding: 0.25rem 0.6rem;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  padding: 0;
   border: var(--ds-hairline) solid var(--ds-color-line-strong);
   border-radius: var(--ds-radius-pill);
   background: transparent;
   color: var(--ds-color-ink);
-  font-family: var(--ds-font-mono);
-  font-size: 0.8125rem;
-  text-transform: uppercase;
   cursor: pointer;
 }
 
-.ds-themeswitch__option[aria-pressed='true'] {
+.ds-themeswitch:hover {
   border-color: var(--ds-color-accent);
   background: var(--ds-color-accent);
   color: var(--ds-color-on-accent);

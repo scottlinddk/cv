@@ -18,7 +18,7 @@ First time on a machine: `npx playwright install chromium` (set `CHROMIUM_PATH` 
 
 ## Design system
 
-`design-system/` is a self-contained, content-agnostic React component library (tokens, fonts, print rules and 20 components) that the site is built from. It mixes the CV's paper sheet, the "Running" warm palette and an editorial mono/serif look, and stays ATS-friendly, A4/PDF-ready and mobile-first. Components take plain props; `src/features/*` adapt the typed content in `src/content/` to them. Conventions for building with it are in `.design-sync/conventions.md`.
+`design-system/` is a self-contained, content-agnostic React component library (tokens, fonts, print rules and 20 components) that the site is built from. It mixes the CV's paper sheet, the green brand palette (light, and its inverse as dark mode) and an editorial mono/serif look, and stays ATS-friendly, A4/PDF-ready and mobile-first. Components take plain props; `src/features/*` adapt the typed content in `src/content/` to them. Conventions for building with it are in `.design-sync/conventions.md`.
 
 `npm run build:ds` builds the library (`design-system/dist/`) for syncing to Claude Design with `/design-sync`.
 
