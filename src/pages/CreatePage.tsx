@@ -1,10 +1,13 @@
 import { useState } from 'react';
+import type { JSONContent } from '@tiptap/react';
 import { Link } from 'react-router';
 import { Button, Section } from '../../design-system/index';
 import { LOCALES, profile, type Locale } from '../content';
 import { CoverLetterDocument } from '../features/cover-letter/CoverLetterDocument';
+import { RichTextEditor } from '../features/rich-text/RichTextEditor';
 import { ui } from '../i18n/ui';
 import { detectLocale } from '../lib/paths';
+import { hasText } from '../lib/richText';
 import styles from './CreatePage.module.css';
 
 /** Paste or write a cover letter (motiveret ansøgning) and export it as an A4 PDF. Nothing leaves the browser. */
@@ -14,9 +17,9 @@ export function CreatePage() {
   // The letter has its own language, because it follows the job posting rather than the site.
   const [letterLocale, setLetterLocale] = useState<Locale>(locale);
   const [headline, setHeadline] = useState('');
-  const [body, setBody] = useState('');
+  const [body, setBody] = useState<JSONContent | null>(null);
 
-  const hasLetter = body.trim().length > 0;
+  const hasLetter = hasText(body);
 
   return (
     <>
@@ -54,16 +57,11 @@ export function CreatePage() {
                   onChange={(event) => setHeadline(event.target.value)}
                 />
               </label>
-              <label className={styles.field}>
-                <span className={styles.label}>{t.bodyLabel}</span>
-                <textarea
-                  className={`${styles.input} ${styles.textarea}`}
-                  rows={16}
-                  value={body}
-                  placeholder={t.bodyPlaceholder}
-                  onChange={(event) => setBody(event.target.value)}
-                />
-              </label>
+              <RichTextEditor
+                lang={letterLocale}
+                labels={{ label: t.bodyLabel, placeholder: t.bodyPlaceholder, ...t.editor }}
+                onChange={setBody}
+              />
               {hasLetter && (
                 <div>
                   <Button variant="primary" onClick={() => window.print()}>
@@ -76,7 +74,9 @@ export function CreatePage() {
           </Section>
         </main>
       </div>
-      {hasLetter && <CoverLetterDocument headline={headline} body={body} locale={letterLocale} />}
+      {body && hasLetter && (
+        <CoverLetterDocument headline={headline} body={body} locale={letterLocale} />
+      )}
     </>
   );
 }
