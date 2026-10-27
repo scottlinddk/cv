@@ -1,6 +1,6 @@
 .ds-split {
   display: grid;
-  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  grid-template-columns: minmax(0, 16rem) minmax(0, 1fr);
   gap: var(--ds-space-7);
   width: 100%;
   max-width: var(--ds-page-max);

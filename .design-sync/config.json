@@ -42,6 +42,12 @@
     },
     "SkillGroups": {
       "cardMode": "column"
+    },
+    "ThemeSwitch": {
+      "cardMode": "column"
+    },
+    "ProjectShowcase": {
+      "cardMode": "column"
     }
   },
   "readmeHeader": ".design-sync/conventions.md"

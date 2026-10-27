@@ -20,6 +20,7 @@ export interface UiStrings {
     backToSite: string;
     language: string;
   };
+  theme: { label: string; system: string; light: string; dark: string };
   notFound: { title: string; body: string; link: string };
 }
 
@@ -43,6 +44,7 @@ const en: UiStrings = {
     backToSite: 'Back to site',
     language: 'Language',
   },
+  theme: { label: 'Theme', system: 'Auto', light: 'Light', dark: 'Dark' },
   notFound: {
     title: 'Page not found',
     body: 'The page you are looking for does not exist.',
@@ -70,6 +72,7 @@ const da: UiStrings = {
     backToSite: 'Tilbage til siden',
     language: 'Sprog',
   },
+  theme: { label: 'Tema', system: 'Auto', light: 'Lys', dark: 'Mørk' },
   notFound: {
     title: 'Siden blev ikke fundet',
     body: 'Siden du leder efter findes ikke.',

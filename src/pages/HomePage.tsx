@@ -5,8 +5,9 @@ import { EducationList } from '../features/education/EducationList';
 import { ExperienceList } from '../features/experience/ExperienceList';
 import { AppLanguageSwitch } from '../features/language-switch/AppLanguageSwitch';
 import { LanguageList } from '../features/languages/LanguageList';
-import { ProjectList } from '../features/projects/ProjectList';
 import { SiteFooter } from '../features/site-footer/SiteFooter';
+import { ProjectShowcase } from '../features/project-showcase/ProjectShowcase';
+import { AppThemeSwitch } from '../features/theme-switch/AppThemeSwitch';
 import { SkillGroups } from '../features/skills/SkillGroups';
 import { profile, projects, spokenLanguages } from '../content';
 import { useLocale } from '../hooks/useLocale';
@@ -26,6 +27,7 @@ export function HomePage() {
       <header className={`${styles.header} ds-no-print`}>
         <Link to={`/${locale}/cv`}>{t.nav.cv}</Link>
         <AppLanguageSwitch />
+        <AppThemeSwitch />
       </header>
       <main id="content">
         <SplitLayout
@@ -63,7 +65,7 @@ export function HomePage() {
           </Section>
           {projects.length > 0 && (
             <Section title={t.sections.projects}>
-              <ProjectList />
+              <ProjectShowcase />
             </Section>
           )}
           <Section title={t.sections.education}>

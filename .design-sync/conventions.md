@@ -4,7 +4,7 @@ Warm editorial CV system. Three things are non-negotiable: **ATS-friendly** (rea
 
 ## Setup
 
-Load `styles.css` once (it imports the static Geist, Geist Mono and Instrument Serif fonts, all tokens, base styles and print rules). No provider is needed. Dark mode follows the OS or `<html data-theme="dark">`; `data-theme="light"` forces light. The A4 `Sheet` is always paper-white.
+Load `styles.css` once (it imports the static Geist, Geist Mono and Instrument Serif fonts, all tokens, base styles and print rules). No provider is needed. Dark mode follows the OS or `<html data-theme="dark">`; `data-theme="light"` forces light. `ThemeSwitch` is a controlled Auto/Light/Dark pill group: the app stores the choice and sets `data-theme` (no attribute means follow the OS). The A4 `Sheet` is always paper-white.
 
 ```jsx
 const { Sheet, ProfileHeader, Portrait, Section, ExperienceList, TagList } = window.CvDesignSystem;
@@ -30,7 +30,7 @@ There is no utility-class system. Compose the library components; for your own l
 
 ## Where the truth lives
 
-Read `_ds/<folder>/styles.css` and its imports for the tokens, and each component's `<Name>.d.ts` and `<Name>.prompt.md` for props. Composition references: `Sheet` (A4 document), `SplitLayout` (web page with sticky aside).
+Read `_ds/<folder>/styles.css` and its imports for the tokens, and each component's `<Name>.d.ts` and `<Name>.prompt.md` for props. Composition references: `Sheet` (A4 document), `SplitLayout` (web page with a 16rem sticky aside, keep the `Portrait` there at its default small size). Use `ProjectShowcase` for personal projects on web pages and the plain `ProjectList` inside the A4 `Sheet`.
 
 ## One build snippet (web page)
 

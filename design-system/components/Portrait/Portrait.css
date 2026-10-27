@@ -11,12 +11,16 @@
   object-fit: cover;
 }
 
+.ds-portrait--page {
+  width: min(100%, 10rem);
+}
+
 .ds-portrait--sheet {
-  width: 28mm;
+  width: 22mm;
 }
 
 .ds-portrait--sheet .ds-portrait__img {
-  border-radius: 1em;
+  border-radius: 0.8em;
 }
 
 .ds-portrait__caption {

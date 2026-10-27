@@ -46,3 +46,15 @@ export {
 export { Toolbar, type ToolbarProps } from './components/Toolbar/Toolbar';
 export { SplitLayout, type SplitLayoutProps } from './components/SplitLayout/SplitLayout';
 export { Sheet, type SheetProps } from './components/Sheet/Sheet';
+export {
+  ThemeSwitch,
+  type ThemeChoice,
+  type ThemeSwitchOption,
+  type ThemeSwitchProps,
+} from './components/ThemeSwitch/ThemeSwitch';
+export {
+  ProjectShowcase,
+  type ProjectShowcaseItem,
+  type ProjectShowcaseLink,
+  type ProjectShowcaseProps,
+} from './components/ProjectShowcase/ProjectShowcase';

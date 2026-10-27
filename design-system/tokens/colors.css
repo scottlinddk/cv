@@ -82,3 +82,11 @@
   background: var(--ds-color-paper);
   color: var(--ds-color-ink);
 }
+
+:root[data-theme='light'] {
+  color-scheme: light;
+}
+
+:root[data-theme='dark'] {
+  color-scheme: dark;
+}

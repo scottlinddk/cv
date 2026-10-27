@@ -15,7 +15,8 @@
 }
 
 @media print {
-  :root {
+  :root,
+  :root[data-theme='dark'] {
     color-scheme: light;
     --ds-color-canvas: #fff;
     --ds-color-paper: #fff;
