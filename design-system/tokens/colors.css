@@ -27,7 +27,8 @@
   --ds-derived-ink-2-dark: #d2d2d2;
   --ds-derived-line-strong-dark: #8c8c8c;
   --ds-derived-peach-line: #d9b98f;
-  --ds-derived-mocha-line: #4d4136;
+  --ds-derived-mocha-line: #8c7a68;
+  --ds-derived-mocha-muted: #e0d6cc;
 }
 
 :root {
@@ -66,7 +67,7 @@
     --ds-color-on-accent: var(--ds-caffeine-ink-dark);
     --ds-color-card: var(--ds-caffeine-mocha);
     --ds-color-card-ink: var(--ds-caffeine-cream);
-    --ds-color-card-muted: var(--ds-neutral-d-muted-fg);
+    --ds-color-card-muted: var(--ds-derived-mocha-muted);
     --ds-color-card-line: var(--ds-derived-mocha-line);
   }
 }
@@ -86,7 +87,7 @@
   --ds-color-on-accent: var(--ds-caffeine-ink-dark);
   --ds-color-card: var(--ds-caffeine-mocha);
   --ds-color-card-ink: var(--ds-caffeine-cream);
-  --ds-color-card-muted: var(--ds-neutral-d-muted-fg);
+  --ds-color-card-muted: var(--ds-derived-mocha-muted);
   --ds-color-card-line: var(--ds-derived-mocha-line);
 }
 
