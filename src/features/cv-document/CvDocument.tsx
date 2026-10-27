@@ -1,10 +1,9 @@
 import { Portrait, ProfileHeader, Section, Sheet } from '../../../design-system/index';
-import { profile, projects, spokenLanguages } from '../../content';
+import { profile, spokenLanguages } from '../../content';
 import { ProfileContacts } from '../contact/ProfileContacts';
 import { EducationList } from '../education/EducationList';
 import { ExperienceList } from '../experience/ExperienceList';
 import { LanguageList } from '../languages/LanguageList';
-import { ProjectList } from '../projects/ProjectList';
 import { SkillGroups } from '../skills/SkillGroups';
 import { assetUrl } from '../../lib/assets';
 import { useLocale } from '../../hooks/useLocale';
@@ -53,11 +52,6 @@ export function CvDocument() {
       <Section title={t.sections.experience}>
         <ExperienceList />
       </Section>
-      {projects.length > 0 && (
-        <Section title={t.sections.projects}>
-          <ProjectList />
-        </Section>
-      )}
     </Sheet>
   );
 }
