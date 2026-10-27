@@ -52,56 +52,10 @@
   outline-offset: 2px;
 }
 
-/* Mirrors the design system's primary Button, but as a real submit button. */
-.submit {
-  padding: 0.4em 1em;
-  border: var(--ds-hairline) solid var(--ds-color-accent);
-  border-radius: var(--ds-radius-pill);
-  background: var(--ds-color-accent);
-  color: var(--ds-color-on-accent);
-  font-family: var(--ds-font-mono);
-  font-size: 0.8125rem;
-  text-transform: uppercase;
-  cursor: pointer;
-}
-
-.submit:disabled {
-  opacity: 0.6;
-  cursor: progress;
-}
-
 .hint {
   margin-block: var(--ds-space-4);
   color: var(--ds-color-muted);
   font-size: var(--ds-text-small);
-}
-
-.error {
-  color: var(--ds-color-accent-text);
-}
-
-.result {
-  display: grid;
-  gap: var(--ds-space-3);
-  justify-items: start;
-  margin-top: var(--ds-space-5);
-}
-
-.resultTitle {
-  margin: 0;
-  font-family: var(--ds-font-mono);
-  font-size: var(--ds-text-label);
-  text-transform: uppercase;
-}
-
-.result > * {
-  width: 100%;
-}
-
-.actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--ds-space-2);
 }
 
 .modes {

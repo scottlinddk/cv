@@ -27,25 +27,11 @@ export interface UiStrings {
   notFound: { title: string; body: string; link: string };
   create: {
     title: string;
-    sourceLabel: string;
-    sourceUrl: string;
-    sourceText: string;
-    urlLabel: string;
-    textLabel: string;
-    textPlaceholder: string;
-    urlPlaceholder: string;
-    accessCodeLabel: string;
-    submit: string;
-    loading: string;
-    draftTitle: string;
-    copy: string;
-    copied: string;
-    hint: string;
-    letterTitle: string;
-    letterLanguage: string;
     headlineLabel: string;
-    headlineDefault: string;
+    headlinePlaceholder: string;
     bodyLabel: string;
+    bodyPlaceholder: string;
+    letterLanguage: string;
     exportPdf: string;
     exportHint: string;
   };
@@ -81,26 +67,12 @@ const en: UiStrings = {
     link: 'Go to the start page',
   },
   create: {
-    title: 'Draft an application',
-    sourceLabel: 'Job posting',
-    sourceUrl: 'Link',
-    sourceText: 'Paste text',
-    urlLabel: 'Link to the job posting',
-    textLabel: 'Paste the job posting',
-    textPlaceholder: 'Paste the full text of the job posting here',
-    urlPlaceholder: 'https://example.com/jobs/frontend-developer',
-    accessCodeLabel: 'Access code',
-    submit: 'Generate draft',
-    loading: 'Writing draft…',
-    draftTitle: 'Draft',
-    copy: 'Copy',
-    copied: 'Copied',
-    hint: 'The draft is built from the CV on this site and written in the language of the posting. Always review it before sending.',
-    letterTitle: 'Cover letter',
-    letterLanguage: 'Letter language',
+    title: 'Write a cover letter',
     headlineLabel: 'Headline',
-    headlineDefault: 'Cover letter',
+    headlinePlaceholder: 'Cover letter: Senior Frontend Developer at Acme',
     bodyLabel: 'Text',
+    bodyPlaceholder: 'Paste or write the letter here. A blank line starts a new paragraph.',
+    letterLanguage: 'Letter language',
     exportPdf: 'Export PDF',
     exportHint:
       'Opens the print dialog. Choose “Save as PDF” as the destination and turn off headers and footers.',
@@ -137,26 +109,12 @@ const da: UiStrings = {
     link: 'Gå til forsiden',
   },
   create: {
-    title: 'Lav et ansøgningsudkast',
-    sourceLabel: 'Jobopslag',
-    sourceUrl: 'Link',
-    sourceText: 'Indsæt tekst',
-    urlLabel: 'Link til jobopslaget',
-    textLabel: 'Indsæt jobopslaget',
-    textPlaceholder: 'Indsæt hele teksten fra jobopslaget her',
-    urlPlaceholder: 'https://eksempel.dk/job/frontend-udvikler',
-    accessCodeLabel: 'Adgangskode',
-    submit: 'Lav udkast',
-    loading: 'Skriver udkast…',
-    draftTitle: 'Udkast',
-    copy: 'Kopiér',
-    copied: 'Kopieret',
-    hint: 'Udkastet bygger på CV’et på siden og skrives på opslagets sprog. Læs det altid igennem, før du sender det.',
-    letterTitle: 'Motiveret ansøgning',
-    letterLanguage: 'Brevets sprog',
+    title: 'Skriv en motiveret ansøgning',
     headlineLabel: 'Overskrift',
-    headlineDefault: 'Motiveret ansøgning',
+    headlinePlaceholder: 'Motiveret ansøgning: Senior Frontend-udvikler hos Norlys',
     bodyLabel: 'Tekst',
+    bodyPlaceholder: 'Indsæt eller skriv brevet her. En tom linje starter et nyt afsnit.',
+    letterLanguage: 'Brevets sprog',
     exportPdf: 'Eksportér PDF',
     exportHint:
       'Åbner udskriftsdialogen. Vælg “Gem som PDF” som destination, og slå sidehoved og sidefod fra.',
