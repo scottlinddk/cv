@@ -5,7 +5,7 @@ import { DraftError, requestDraft, type PostingSource } from './draftApi';
 export type DraftState =
   | { status: 'idle' }
   | { status: 'loading' }
-  | { status: 'done'; draft: string }
+  | { status: 'done'; draft: string; headline?: string }
   | { status: 'error'; code: string; message: string };
 
 export function useApplicationDraft() {
@@ -16,8 +16,12 @@ export function useApplicationDraft() {
     const id = ++latest.current;
     setState({ status: 'loading' });
     try {
-      const draft = await requestDraft({ source, candidate: buildCandidateProfile(), accessCode });
-      if (id === latest.current) setState({ status: 'done', draft });
+      const result = await requestDraft({
+        source,
+        candidate: buildCandidateProfile(),
+        accessCode,
+      });
+      if (id === latest.current) setState({ status: 'done', ...result });
     } catch (error) {
       if (id !== latest.current) return;
       const known = error instanceof DraftError;
