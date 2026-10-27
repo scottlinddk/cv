@@ -1,0 +1,22 @@
+.ds-card {
+  padding: 1em 1.2em 1.2em;
+  border: var(--ds-hairline) solid var(--ds-color-card-line);
+  border-radius: var(--ds-radius-md);
+  background: var(--ds-color-card);
+  color: var(--ds-color-card-ink);
+  break-inside: avoid;
+}
+
+.ds-card__title {
+  margin: 0 0 0.7em;
+  color: var(--ds-color-card-muted);
+  font-family: var(--ds-font-mono);
+  font-size: var(--ds-text-small);
+  font-weight: 400;
+  letter-spacing: var(--ds-tracking-label);
+}
+
+.ds-card__body {
+  font-size: 1.05em;
+  line-height: 1.35;
+}

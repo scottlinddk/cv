@@ -1,0 +1,37 @@
+.ds-contacts {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.ds-contacts--row {
+  flex-wrap: wrap;
+  gap: 0.3em 1.4em;
+}
+
+.ds-contacts--stack {
+  flex-direction: column;
+  gap: 0.55em;
+}
+
+.ds-contacts__item {
+  display: flex;
+  align-items: center;
+  gap: 0.6em;
+  overflow-wrap: anywhere;
+}
+
+.ds-contacts__item a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.ds-contacts__item a:hover {
+  text-decoration: underline;
+}
+
+.ds-contacts__icon {
+  display: inline-flex;
+  color: var(--ds-color-accent-text);
+}

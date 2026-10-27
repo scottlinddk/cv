@@ -1,0 +1,29 @@
+.ds-portrait {
+  margin: 0;
+}
+
+.ds-portrait__img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1;
+  border-radius: var(--ds-radius-lg);
+  background: var(--ds-color-surface-2);
+  object-fit: cover;
+}
+
+.ds-portrait--page {
+  width: min(100%, 10rem);
+}
+
+.ds-portrait--sheet {
+  width: 22mm;
+}
+
+.ds-portrait--sheet .ds-portrait__img {
+  border-radius: 0.8em;
+}
+
+.ds-portrait__caption {
+  margin-block-start: 0.6em;
+  font-size: var(--ds-text-small);
+}

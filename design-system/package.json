@@ -1,0 +1,18 @@
+{
+  "name": "@scottlind/cv-design-system",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Warm editorial CV design system: ATS-friendly, A4/PDF-ready, mobile-first.",
+  "type": "module",
+  "main": "./dist/index.es.js",
+  "module": "./dist/index.es.js",
+  "types": "./dist/index.d.ts",
+  "style": "./dist/style.css",
+  "sideEffects": [
+    "**/*.css"
+  ],
+  "peerDependencies": {
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  }
+}

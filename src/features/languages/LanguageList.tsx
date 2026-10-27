@@ -1,18 +1,17 @@
+import { LanguageList as DsLanguageList } from '../../../design-system/index';
 import { spokenLanguages } from '../../content';
 import { useLocale } from '../../hooks/useLocale';
-import styles from './LanguageList.module.css';
 
 export function LanguageList() {
   const { locale } = useLocale();
 
   return (
-    <ul className={styles.list}>
-      {spokenLanguages.map((language) => (
-        <li key={language.id}>
-          <strong>{language.label[locale]}</strong>
-          <span className={styles.level}> · {language.level[locale]}</span>
-        </li>
-      ))}
-    </ul>
+    <DsLanguageList
+      items={spokenLanguages.map((language) => ({
+        id: language.id,
+        label: language.label[locale],
+        level: language.level[locale],
+      }))}
+    />
   );
 }

@@ -1,0 +1,28 @@
+.ds-section {
+  margin-block-start: 1.6em;
+}
+
+.ds-section:first-child {
+  margin-block-start: 0;
+}
+
+.ds-section__eyebrow {
+  margin: 0 0 0.2em;
+  color: var(--ds-color-muted);
+  font-family: var(--ds-font-mono);
+  font-size: var(--ds-text-label);
+  letter-spacing: var(--ds-tracking-label);
+  text-transform: uppercase;
+}
+
+.ds-section__title {
+  margin: 0 0 0.8em;
+  color: var(--ds-color-ink);
+  font-family: var(--ds-font-mono);
+  font-size: 1.1em;
+  font-weight: 400;
+  letter-spacing: var(--ds-tracking-label);
+  line-height: 1.2;
+  text-transform: uppercase;
+  break-after: avoid;
+}

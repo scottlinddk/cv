@@ -1,0 +1,26 @@
+.ds-projects {
+  display: grid;
+  gap: 0.9em;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.ds-projects__item {
+  break-inside: avoid;
+}
+
+.ds-projects__name {
+  margin: 0;
+  font-size: 1.05em;
+  font-weight: 600;
+}
+
+.ds-projects__name a {
+  color: inherit;
+}
+
+.ds-projects__description {
+  margin: 0.15em 0 0.4em;
+  color: var(--ds-color-ink-2);
+}

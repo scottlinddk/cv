@@ -1,0 +1,11 @@
+.ds-languages {
+  display: grid;
+  gap: 0.3em;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.ds-languages__level {
+  color: var(--ds-color-ink-2);
+}

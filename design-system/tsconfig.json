@@ -1,0 +1,15 @@
+{
+  "extends": "../tsconfig.app.json",
+  "compilerOptions": {
+    "composite": false,
+    "incremental": false,
+    "noEmit": false,
+    "allowImportingTsExtensions": false,
+    "declaration": true,
+    "emitDeclarationOnly": true,
+    "outDir": "dist",
+    "rootDir": ".",
+    "tsBuildInfoFile": null
+  },
+  "include": ["index.ts", "components", "utils.ts", "vite-env.d.ts"]
+}

@@ -3,3 +3,10 @@ dist
 *.tsbuildinfo
 .DS_Store
 .env*.local
+
+design-system/dist
+ds-bundle
+.ds-sync
+.design-sync/.cache
+.design-sync/learnings
+.design-sync/node_modules

@@ -1,0 +1,6 @@
+/* Tokens, base and print rules without @font-face. The library build ships this; fonts ship as files. */
+@import './tokens/colors.css';
+@import './tokens/typography.css';
+@import './tokens/spacing.css';
+@import './tokens/base.css';
+@import './tokens/print.css';
