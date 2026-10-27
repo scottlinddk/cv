@@ -20,6 +20,6 @@
 
 .ds-card .ds-tags__tag {
   border-color: var(--ds-color-card-line);
-  background: transparent;
-  color: var(--ds-color-card-muted);
+  background: color-mix(in srgb, var(--ds-color-card-ink) 10%, transparent);
+  color: var(--ds-color-card-ink);
 }
