@@ -22,6 +22,18 @@ export interface UiStrings {
   };
   theme: { label: string; system: string; light: string; dark: string };
   notFound: { title: string; body: string; link: string };
+  create: {
+    title: string;
+    urlLabel: string;
+    urlPlaceholder: string;
+    accessCodeLabel: string;
+    submit: string;
+    loading: string;
+    draftTitle: string;
+    copy: string;
+    copied: string;
+    hint: string;
+  };
 }
 
 const en: UiStrings = {
@@ -50,6 +62,18 @@ const en: UiStrings = {
     body: 'The page you are looking for does not exist.',
     link: 'Go to the start page',
   },
+  create: {
+    title: 'Draft an application',
+    urlLabel: 'Link to the job posting',
+    urlPlaceholder: 'https://example.com/jobs/frontend-developer',
+    accessCodeLabel: 'Access code',
+    submit: 'Generate draft',
+    loading: 'Writing draft…',
+    draftTitle: 'Draft',
+    copy: 'Copy',
+    copied: 'Copied',
+    hint: 'The draft is built from the CV on this site and written in the language of the posting. Always review it before sending.',
+  },
 };
 
 const da: UiStrings = {
@@ -77,6 +101,18 @@ const da: UiStrings = {
     title: 'Siden blev ikke fundet',
     body: 'Siden du leder efter findes ikke.',
     link: 'Gå til forsiden',
+  },
+  create: {
+    title: 'Lav et ansøgningsudkast',
+    urlLabel: 'Link til jobopslaget',
+    urlPlaceholder: 'https://eksempel.dk/job/frontend-udvikler',
+    accessCodeLabel: 'Adgangskode',
+    submit: 'Lav udkast',
+    loading: 'Skriver udkast…',
+    draftTitle: 'Udkast',
+    copy: 'Kopiér',
+    copied: 'Kopieret',
+    hint: 'Udkastet bygger på CV’et på siden og skrives på opslagets sprog. Læs det altid igennem, før du sender det.',
   },
 };
 
