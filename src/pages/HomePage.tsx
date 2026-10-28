@@ -33,11 +33,7 @@ export function HomePage() {
         <SplitLayout
           aside={
             <>
-              <Portrait src={assetUrl(profile.photo)} alt={profile.name}>
-                <strong>{profile.name}</strong>
-                <br />
-                <span className={styles.caption}>{profile.title[locale]}</span>
-              </Portrait>
+              <Portrait src={assetUrl(profile.photo)} alt={profile.name} />
               <ProfileContacts layout="stack" />
             </>
           }
