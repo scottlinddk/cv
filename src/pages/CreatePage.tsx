@@ -17,6 +17,9 @@ export function CreatePage() {
   // The letter has its own language, because it follows the job posting rather than the site.
   const [letterLocale, setLetterLocale] = useState<Locale>(locale);
   const [headline, setHeadline] = useState('');
+  // Null means "use the profile title in the letter's language"; once edited, the typed text wins.
+  const [roleOverride, setRoleOverride] = useState<string | null>(null);
+  const role = roleOverride ?? profile.title[letterLocale];
   const [body, setBody] = useState<JSONContent | null>(null);
 
   const hasLetter = hasText(body);
@@ -57,6 +60,14 @@ export function CreatePage() {
                   onChange={(event) => setHeadline(event.target.value)}
                 />
               </label>
+              <label className={styles.field}>
+                <span className={styles.label}>{t.roleLabel}</span>
+                <input
+                  className={styles.input}
+                  value={role}
+                  onChange={(event) => setRoleOverride(event.target.value)}
+                />
+              </label>
               <RichTextEditor
                 lang={letterLocale}
                 labels={{ label: t.bodyLabel, placeholder: t.bodyPlaceholder, ...t.editor }}
@@ -75,7 +86,7 @@ export function CreatePage() {
         </main>
       </div>
       {body && hasLetter && (
-        <CoverLetterDocument headline={headline} body={body} locale={letterLocale} />
+        <CoverLetterDocument headline={headline} role={role} body={body} locale={letterLocale} />
       )}
     </>
   );
