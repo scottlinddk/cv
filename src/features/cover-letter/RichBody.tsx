@@ -23,6 +23,8 @@ function renderNode(node: JSONContent, key: number): ReactNode {
           {renderChildren(node)}
         </p>
       );
+    case 'heading':
+      return renderHeading(node, key);
     case 'bulletList':
       return (
         <ul key={key} className="ds-letter__list">
@@ -46,10 +48,44 @@ function renderNode(node: JSONContent, key: number): ReactNode {
   }
 }
 
+function renderHeading(node: JSONContent, key: number): ReactNode {
+  const children = renderChildren(node);
+  if (node.attrs?.level === 3) {
+    return (
+      <h3 key={key} className="ds-letter__heading ds-letter__heading--minor">
+        {children}
+      </h3>
+    );
+  }
+  return (
+    <h2 key={key} className="ds-letter__heading">
+      {children}
+    </h2>
+  );
+}
+
+/** Pasted or typed links can carry any scheme, so only these are ever turned into a clickable href. */
+const SAFE_HREF = /^(https?:|mailto:)/i;
+
 function renderText(node: JSONContent, key: number): ReactNode {
   return (node.marks ?? []).reduce<ReactNode>((children, mark) => {
     if (mark.type === 'bold') return <strong key={key}>{children}</strong>;
     if (mark.type === 'italic') return <em key={key}>{children}</em>;
+    if (mark.type === 'link') {
+      const href: unknown = mark.attrs?.href;
+      if (typeof href !== 'string' || !SAFE_HREF.test(href)) return children;
+      return (
+        <a
+          key={key}
+          href={href}
+          className="ds-letter__link"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          {children}
+        </a>
+      );
+    }
     return children;
   }, node.text);
 }

@@ -40,6 +40,31 @@
   overflow-wrap: anywhere;
 }
 
+.ds-letter__heading {
+  margin-block-start: 0.4em;
+  color: var(--ds-color-ink);
+  font-family: var(--ds-font-display);
+  font-size: 1.5em;
+  font-weight: 400;
+  font-synthesis: none;
+  line-height: var(--ds-leading-tight);
+  overflow-wrap: anywhere;
+}
+
+.ds-letter__heading--minor {
+  font-family: var(--ds-font-mono);
+  font-size: 0.9em;
+  letter-spacing: var(--ds-tracking-label);
+  text-transform: uppercase;
+}
+
+.ds-letter__link {
+  color: var(--ds-color-accent-text);
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+  overflow-wrap: anywhere;
+}
+
 .ds-letter__list {
   display: grid;
   gap: 0.35em;
