@@ -27,7 +27,7 @@ jobs:
       - run: npm run pdf
       - run: npm run verify:pdf
       - run: npm run check:pdf
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         with:
           name: site
           path: dist
