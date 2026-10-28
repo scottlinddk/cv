@@ -29,6 +29,7 @@ export interface UiStrings {
     title: string;
     headlineLabel: string;
     headlinePlaceholder: string;
+    roleLabel: string;
     bodyLabel: string;
     bodyPlaceholder: string;
     editor: { bold: string; italic: string; bulletList: string; orderedList: string };
@@ -71,6 +72,7 @@ const en: UiStrings = {
     title: 'Write a cover letter',
     headlineLabel: 'Headline',
     headlinePlaceholder: 'Cover letter: Senior Frontend Developer at Acme',
+    roleLabel: 'Role title',
     bodyLabel: 'Text',
     bodyPlaceholder:
       'Paste or write the letter here. Enter starts a new paragraph, Shift+Enter a new line.',
@@ -120,6 +122,7 @@ const da: UiStrings = {
     title: 'Skriv en motiveret ansøgning',
     headlineLabel: 'Overskrift',
     headlinePlaceholder: 'Motiveret ansøgning: Senior Frontend-udvikler hos Norlys',
+    roleLabel: 'Rolletitel',
     bodyLabel: 'Tekst',
     bodyPlaceholder:
       'Indsæt eller skriv brevet her. Enter starter et nyt afsnit, Shift+Enter en ny linje.',
