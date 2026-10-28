@@ -68,6 +68,22 @@
   margin-block-start: 1em;
 }
 
+.content h2 {
+  font-size: 1.4em;
+  line-height: var(--ds-leading-tight);
+}
+
+.content h3 {
+  font-family: var(--ds-font-mono);
+  font-size: 0.9em;
+  text-transform: uppercase;
+}
+
+.content a {
+  color: var(--ds-color-accent-text);
+  text-decoration: underline;
+}
+
 .content ul,
 .content ol {
   padding-inline-start: 1.5em;

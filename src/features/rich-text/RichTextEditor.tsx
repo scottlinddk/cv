@@ -9,6 +9,10 @@ export interface RichTextLabels {
   placeholder: string;
   bold: string;
   italic: string;
+  heading2: string;
+  heading3: string;
+  link: string;
+  linkPrompt: string;
   bulletList: string;
   orderedList: string;
 }
@@ -20,15 +24,17 @@ interface RichTextEditorProps {
   onChange: (doc: JSONContent) => void;
 }
 
-/** Only what the letter can render: paragraphs, bold, italic and lists. Keep in sync with RichBody. */
+/** Only what the letter can render: paragraphs, headings, bold, italic, links and lists. Keep in sync with RichBody. */
 const extensions = (placeholder: string) => [
   StarterKit.configure({
     blockquote: false,
     code: false,
     codeBlock: false,
-    heading: false,
+    heading: { levels: [2, 3] },
     horizontalRule: false,
-    link: false,
+    // Links are typed in through the toolbar, never followed while editing, and limited to the same
+    // protocols RichBody renders.
+    link: { openOnClick: false, protocols: ['mailto'], defaultProtocol: 'https' },
     strike: false,
     underline: false,
   }),
@@ -56,14 +62,37 @@ export function RichTextEditor({ labels, lang, onChange }: RichTextEditorProps) 
     selector: ({ editor }) => ({
       bold: editor.isActive('bold'),
       italic: editor.isActive('italic'),
+      heading2: editor.isActive('heading', { level: 2 }),
+      heading3: editor.isActive('heading', { level: 3 }),
+      link: editor.isActive('link'),
       bulletList: editor.isActive('bulletList'),
       orderedList: editor.isActive('orderedList'),
     }),
   });
 
+  const toggleLink = () => {
+    if (editor.isActive('link')) {
+      editor.chain().focus().extendMarkRange('link').unsetLink().run();
+      return;
+    }
+    const href = window.prompt(labels.linkPrompt)?.trim();
+    if (href) editor.chain().focus().setLink({ href }).run();
+  };
+
   const buttons = [
     { key: 'bold', text: 'B', run: () => editor.chain().focus().toggleBold().run() },
     { key: 'italic', text: 'I', run: () => editor.chain().focus().toggleItalic().run() },
+    {
+      key: 'heading2',
+      text: 'H2',
+      run: () => editor.chain().focus().toggleHeading({ level: 2 }).run(),
+    },
+    {
+      key: 'heading3',
+      text: 'H3',
+      run: () => editor.chain().focus().toggleHeading({ level: 3 }).run(),
+    },
+    { key: 'link', text: '🔗', run: toggleLink },
     { key: 'bulletList', text: '•', run: () => editor.chain().focus().toggleBulletList().run() },
     { key: 'orderedList', text: '1.', run: () => editor.chain().focus().toggleOrderedList().run() },
   ] as const;

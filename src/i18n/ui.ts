@@ -32,7 +32,16 @@ export interface UiStrings {
     roleLabel: string;
     bodyLabel: string;
     bodyPlaceholder: string;
-    editor: { bold: string; italic: string; bulletList: string; orderedList: string };
+    editor: {
+      bold: string;
+      italic: string;
+      heading2: string;
+      heading3: string;
+      link: string;
+      linkPrompt: string;
+      bulletList: string;
+      orderedList: string;
+    };
     letterLanguage: string;
     exportPdf: string;
     exportHint: string;
@@ -79,6 +88,10 @@ const en: UiStrings = {
     editor: {
       bold: 'Bold',
       italic: 'Italic',
+      heading2: 'Heading',
+      heading3: 'Subheading',
+      link: 'Link',
+      linkPrompt: 'Link address (https://… or mailto:…)',
       bulletList: 'Bulleted list',
       orderedList: 'Numbered list',
     },
@@ -129,6 +142,10 @@ const da: UiStrings = {
     editor: {
       bold: 'Fed',
       italic: 'Kursiv',
+      heading2: 'Overskrift',
+      heading3: 'Underoverskrift',
+      link: 'Link',
+      linkPrompt: 'Linkadresse (https://… eller mailto:…)',
       bulletList: 'Punktliste',
       orderedList: 'Nummereret liste',
     },
