@@ -1,0 +1,94 @@
+/* App-level glue only. Mirrors the form inputs on the create page, using the design system's tokens. */
+.root {
+  display: grid;
+  gap: var(--ds-space-2);
+}
+
+.label {
+  color: var(--ds-color-muted);
+  font-family: var(--ds-font-mono);
+  font-size: var(--ds-text-label);
+  text-transform: uppercase;
+}
+
+.editor {
+  border: var(--ds-hairline) solid var(--ds-color-line-strong);
+  border-radius: var(--ds-radius-md);
+  background: var(--ds-color-surface);
+  color: var(--ds-color-ink);
+}
+
+.editor:focus-within {
+  outline: 2px solid var(--ds-color-accent);
+  outline-offset: 2px;
+}
+
+.toolbar {
+  display: flex;
+  gap: var(--ds-space-1);
+  padding: var(--ds-space-2);
+  border-block-end: var(--ds-hairline) solid var(--ds-color-line);
+}
+
+.button {
+  min-width: 2.25rem;
+  padding: 0.3em 0.6em;
+  border: var(--ds-hairline) solid transparent;
+  border-radius: var(--ds-radius-sm);
+  background: transparent;
+  color: var(--ds-color-ink);
+  font-family: var(--ds-font-mono);
+  font-size: 0.8125rem;
+  cursor: pointer;
+}
+
+.button:hover {
+  background: var(--ds-color-surface-2);
+}
+
+.button[aria-pressed='true'] {
+  border-color: var(--ds-color-accent);
+  background: var(--ds-color-accent);
+  color: var(--ds-color-on-accent);
+}
+
+.button:focus-visible {
+  outline: 2px solid var(--ds-color-accent);
+  outline-offset: 2px;
+}
+
+/* ProseMirror owns this element, so its own focus ring is dropped in favour of the one on .editor. */
+.content {
+  min-height: 12rem;
+  padding: 0.6em 0.8em;
+  outline: none;
+}
+
+.content > * + * {
+  margin-block-start: 1em;
+}
+
+.content ul,
+.content ol {
+  padding-inline-start: 1.5em;
+}
+
+.content ul {
+  list-style: disc;
+}
+
+.content ol {
+  list-style: decimal;
+}
+
+.content li > p {
+  margin: 0;
+}
+
+.content p.is-editor-empty:first-child::before {
+  float: left;
+  height: 0;
+  color: var(--ds-color-muted);
+  content: attr(data-placeholder);
+  pointer-events: none;
+}

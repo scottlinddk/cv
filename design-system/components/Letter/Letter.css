@@ -40,6 +40,18 @@
   overflow-wrap: anywhere;
 }
 
+.ds-letter__list {
+  display: grid;
+  gap: 0.35em;
+  padding-inline-start: 1.5em;
+  list-style: disc;
+  overflow-wrap: anywhere;
+}
+
+.ds-letter__list--ordered {
+  list-style: decimal;
+}
+
 .ds-letter__footer {
   margin-block-start: 2em;
   padding-block-start: 1em;

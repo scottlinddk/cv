@@ -1,12 +1,13 @@
+import type { JSONContent } from '@tiptap/react';
 import { ContactList, Letter } from '../../../design-system/index';
 import { profile } from '../../content';
 import type { Locale } from '../../content';
 import { resolve } from '../../lib/localize';
-import { splitParagraphs } from '../../lib/letter';
+import { RichBody } from './RichBody';
 
 interface CoverLetterDocumentProps {
   headline: string;
-  body: string;
+  body: JSONContent;
   /** Language of the letter, which follows the job posting and can differ from the site language. */
   locale: Locale;
 }
@@ -18,7 +19,6 @@ export function CoverLetterDocument({ headline, body, locale }: CoverLetterDocum
       lang={locale}
       headline={headline}
       kicker={`${profile.name} · ${profile.title[locale]}`}
-      paragraphs={splitParagraphs(body)}
       footer={
         <ContactList
           items={profile.contacts.map((contact) => ({
@@ -28,6 +28,8 @@ export function CoverLetterDocument({ headline, body, locale }: CoverLetterDocum
           }))}
         />
       }
-    />
+    >
+      <RichBody doc={body} />
+    </Letter>
   );
 }

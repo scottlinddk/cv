@@ -31,6 +31,7 @@ export interface UiStrings {
     headlinePlaceholder: string;
     bodyLabel: string;
     bodyPlaceholder: string;
+    editor: { bold: string; italic: string; bulletList: string; orderedList: string };
     letterLanguage: string;
     exportPdf: string;
     exportHint: string;
@@ -71,7 +72,14 @@ const en: UiStrings = {
     headlineLabel: 'Headline',
     headlinePlaceholder: 'Cover letter: Senior Frontend Developer at Acme',
     bodyLabel: 'Text',
-    bodyPlaceholder: 'Paste or write the letter here. A blank line starts a new paragraph.',
+    bodyPlaceholder:
+      'Paste or write the letter here. Enter starts a new paragraph, Shift+Enter a new line.',
+    editor: {
+      bold: 'Bold',
+      italic: 'Italic',
+      bulletList: 'Bulleted list',
+      orderedList: 'Numbered list',
+    },
     letterLanguage: 'Letter language',
     exportPdf: 'Export PDF',
     exportHint:
@@ -113,7 +121,14 @@ const da: UiStrings = {
     headlineLabel: 'Overskrift',
     headlinePlaceholder: 'Motiveret ansøgning: Senior Frontend-udvikler hos Norlys',
     bodyLabel: 'Tekst',
-    bodyPlaceholder: 'Indsæt eller skriv brevet her. En tom linje starter et nyt afsnit.',
+    bodyPlaceholder:
+      'Indsæt eller skriv brevet her. Enter starter et nyt afsnit, Shift+Enter en ny linje.',
+    editor: {
+      bold: 'Fed',
+      italic: 'Kursiv',
+      bulletList: 'Punktliste',
+      orderedList: 'Nummereret liste',
+    },
     letterLanguage: 'Brevets sprog',
     exportPdf: 'Eksportér PDF',
     exportHint:
