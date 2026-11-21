@@ -26,6 +26,7 @@
     "@fontsource/geist": "^5.3.0",
     "@fontsource/geist-mono": "^5.3.0",
     "@fontsource/instrument-serif": "^5.3.0",
+    "@scttlnd/ui": "github:scottlinddk/ui#eb005c3a9b85ecb347ac201f7edf61ad15269d06",
     "@tiptap/extensions": "^3.32.0",
     "@tiptap/pm": "^3.32.0",
     "@tiptap/react": "^3.32.0",

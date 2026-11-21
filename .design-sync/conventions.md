@@ -4,7 +4,7 @@ Editorial CV system in the Caffeine palette (neutral greys, espresso-brown prima
 
 ## Setup
 
-Load `styles.css` once (it imports the static Geist, Geist Mono and Instrument Serif fonts, all tokens, base styles and print rules). No provider is needed. Dark mode follows the OS or `<html data-theme="dark">`; `data-theme="light"` forces light. `ThemeSwitch` is a controlled sun/moon icon button (pass the scheme that is showing and an action label such as "Switch to dark mode"): the app stores the choice and sets `data-theme` (no attribute means follow the OS). The A4 `Sheet` is always paper-white.
+Load `styles.css` once (it imports the static Geist, Geist Mono and Instrument Serif fonts, all tokens, base styles and print rules). No provider is needed. Colours come from the Caffeine theme of `@scttlnd/ui`. Dark mode is `<html data-fds-mode="dark">` (the app sets it from the OS or the saved choice; light is the default). `ThemeSwitch` is a controlled sun/moon icon button (pass the scheme that is showing and an action label such as "Switch to dark mode"): the app stores the choice and sets `data-theme` and `data-fds-mode`. The A4 `Sheet` is always paper-white.
 
 ```jsx
 const { Sheet, ProfileHeader, Portrait, Section, ExperienceList, TagList } = window.CvDesignSystem;
@@ -17,7 +17,7 @@ There is no utility-class system. Compose the library components; for your own l
 - Colour: `--ds-color-canvas` (page background), `-paper`, `-surface`, `-surface-2`, `-ink`, `-ink-2`, `-muted`, `-line`, `-line-strong`, `-accent` (fills), `-accent-text` (accent-coloured text, AA contrast), `-on-accent`, `-card`, `-card-ink`, `-card-muted`, `-card-line`.
 - Type: `--ds-font-display` (Instrument Serif, the name and nothing else), `--ds-font-sans` (Geist, body), `--ds-font-mono` (Geist Mono, labels, dates, tags, buttons, always paired with `text-transform: uppercase` for labels). Sizes: `--ds-text-label`, `-small`, `-body`, `-lead`, `-title`. Keep `letter-spacing` at or below `--ds-tracking-label` (0.04em): wide tracking breaks PDF text extraction.
 - Space and shape: `--ds-space-1` to `--ds-space-8`, `--ds-radius-sm|md|lg|pill`, `--ds-hairline`, `--ds-gutter`, `--ds-page-max`.
-- Utility class: `ds-no-print` hides anything in print and PDF (toolbars, buttons). `ds-theme-paper` pins the light palette on a container.
+- Utility class: `ds-no-print` hides anything in print and PDF (toolbars, buttons). `ds-theme-paper` plus `data-fds-theme="caffeine"` pins the light palette on a container.
 
 ## Rules that keep it ATS and PDF safe
 

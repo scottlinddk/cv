@@ -18,7 +18,9 @@ First time on a machine: `npx playwright install chromium` (set `CHROMIUM_PATH` 
 
 ## Design system
 
-`design-system/` is a self-contained, content-agnostic React component library (tokens, fonts, print rules and 20 components) that the site is built from. It mixes the CV's paper sheet, the Caffeine palette (light and dark) and an editorial mono/serif look, and stays ATS-friendly, A4/PDF-ready and mobile-first. Components take plain props; `src/features/*` adapt the typed content in `src/content/` to them. Conventions for building with it are in `.design-sync/conventions.md`.
+`design-system/` is a self-contained, content-agnostic React component library (tokens, fonts, print rules and 20 components) that the site is built from. It mixes the CV's paper sheet, the Caffeine theme from [`@scttlnd/ui`](https://github.com/scottlinddk/ui) (light and dark) and an editorial mono/serif look, and stays ATS-friendly, A4/PDF-ready and mobile-first. Components take plain props; `src/features/*` adapt the typed content in `src/content/` to them. Conventions for building with it are in `.design-sync/conventions.md`.
+
+The palette, radii and card shadow come from `@scttlnd/ui/themes/caffeine.css`; `design-system/tokens/colors.css` maps its `--fds-*` variables onto the `--ds-color-*` tokens. Dark mode is `data-fds-mode="dark"` on `<html>`, set from the saved choice or the OS (`useTheme` and the inline script in `index.html`). `@scttlnd/ui` is a git dependency pinned to a commit until 0.8.0 (the first release with Caffeine) is on npm; then switch it to `^0.8.0`.
 
 `npm run build:ds` builds the library (`design-system/dist/`) for syncing to Claude Design with `/design-sync`.
 

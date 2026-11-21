@@ -1,118 +1,49 @@
 /*
- * Colour tokens. Caffeine palette (tweakcn "Caffeine"): neutral greys with espresso-brown primary
- * and cream secondary. Light is the default; dark follows the OS or [data-theme="dark"].
- * .ds-theme-paper pins light. Semantic tokens below only reference the primitives, so a rebrand is
- * a change to this first block.
+ * Colour tokens. The palette comes from the Caffeine theme of @scttlnd/ui (themes/caffeine.css):
+ * neutral greys with an espresso-brown primary and cream secondary. That theme owns the values as
+ * --fds-* variables; the --ds-color-* semantic tokens below only map to them, so components keep their
+ * names and a palette change happens upstream.
+ *
+ * Light is the default. Dark is [data-fds-mode='dark'] on <html>; the app sets it from the visitor's
+ * choice or the OS (see useTheme and the inline script in index.html). Tokens are declared on
+ * [data-fds-theme='caffeine'] as well as :root, so a subtree carrying that attribute (the A4 sheet)
+ * re-resolves against the light palette whatever the page is showing.
  */
-:root {
-  --ds-caffeine-espresso: #644a40;
-  --ds-caffeine-cream: #ffe0c2;
-  --ds-caffeine-peach: #ffdfb5;
-  --ds-caffeine-roast: #582d1d;
-  --ds-caffeine-mocha: #393028;
-  --ds-caffeine-ink-dark: #081a1b;
-  --ds-neutral-50: #f9f9f9;
-  --ds-neutral-25: #fcfcfc;
-  --ds-neutral-100: #efefef;
-  --ds-neutral-200: #d8d8d8;
-  --ds-neutral-600: #646464;
-  --ds-neutral-900: #202020;
-  --ds-neutral-d-bg: #111;
-  --ds-neutral-d-card: #191919;
-  --ds-neutral-d-muted: #222;
-  --ds-neutral-d-fg: #eee;
-  --ds-neutral-d-muted-fg: #b4b4b4;
-  /* Derived from the palette to keep text and borders readable. */
-  --ds-derived-ink-2-light: #3b3b3b;
-  --ds-derived-ink-2-dark: #d2d2d2;
-  --ds-derived-line-strong-dark: #8c8c8c;
-  --ds-derived-peach-line: #d9b98f;
-  --ds-derived-mocha-card: #4a3d33;
-  --ds-derived-mocha-line: #a8927c;
-  --ds-derived-mocha-muted: #f0e4d6;
+@import '@scttlnd/ui/themes/caffeine.css';
+
+:root,
+[data-fds-theme='caffeine'] {
+  --ds-color-canvas: var(--fds-background);
+  --ds-color-paper: var(--fds-panel);
+  --ds-color-surface: var(--fds-panel-soft);
+  --ds-color-surface-2: var(--fds-panel-raised);
+  --ds-color-ink: var(--fds-foreground);
+  --ds-color-ink-2: var(--fds-muted-strong);
+  --ds-color-muted: var(--fds-muted);
+  --ds-color-line: var(--fds-line);
+  --ds-color-line-strong: var(--fds-muted);
+  --ds-color-accent: var(--fds-accent);
+  --ds-color-accent-text: var(--fds-accent);
+  --ds-color-on-accent: var(--fds-on-accent);
+  /* Cards are white in light mode and mocha with cream text in dark mode. */
+  --ds-color-card: var(--fds-panel);
+  --ds-color-card-ink: var(--fds-foreground);
+  --ds-color-card-muted: var(--fds-muted);
+  --ds-color-card-line: var(--fds-line-soft);
+  --ds-shadow-card: var(--fds-shadow-card);
 }
 
-:root {
-  --ds-color-canvas: var(--ds-neutral-50);
-  --ds-color-paper: #fff;
-  --ds-color-surface: var(--ds-neutral-25);
-  --ds-color-surface-2: var(--ds-neutral-100);
-  --ds-color-ink: var(--ds-neutral-900);
-  --ds-color-ink-2: var(--ds-derived-ink-2-light);
-  --ds-color-muted: var(--ds-neutral-600);
-  --ds-color-line: var(--ds-neutral-200);
-  --ds-color-line-strong: var(--ds-neutral-600);
-  --ds-color-accent: var(--ds-caffeine-espresso);
-  --ds-color-accent-text: var(--ds-caffeine-espresso);
-  --ds-color-on-accent: #fff;
-  --ds-color-card: #fff;
-  --ds-color-card-ink: var(--ds-neutral-900);
-  --ds-color-card-muted: var(--ds-neutral-600);
-  --ds-color-card-line: var(--ds-neutral-100);
-  --ds-shadow-card: 0 1px 2px rgb(0 0 0 / 0.04), 0 8px 24px rgb(0 0 0 / 0.07);
-  color-scheme: light dark;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme='light']) {
-    --ds-color-canvas: var(--ds-neutral-d-bg);
-    --ds-color-paper: var(--ds-neutral-d-card);
-    --ds-color-surface: var(--ds-neutral-d-card);
-    --ds-color-surface-2: var(--ds-neutral-d-muted);
-    --ds-color-ink: var(--ds-neutral-d-fg);
-    --ds-color-ink-2: var(--ds-derived-ink-2-dark);
-    --ds-color-muted: var(--ds-neutral-d-muted-fg);
-    --ds-color-line: var(--ds-caffeine-mocha);
-    --ds-color-line-strong: var(--ds-derived-line-strong-dark);
-    --ds-color-accent: var(--ds-caffeine-cream);
-    --ds-color-accent-text: var(--ds-caffeine-cream);
-    --ds-color-on-accent: var(--ds-caffeine-ink-dark);
-    --ds-color-card: var(--ds-derived-mocha-card);
-    --ds-color-card-ink: var(--ds-caffeine-cream);
-    --ds-color-card-muted: var(--ds-derived-mocha-muted);
-    --ds-color-card-line: var(--ds-derived-mocha-line);
-    --ds-shadow-card: none;
-  }
-}
-
-:root[data-theme='dark'] {
-  --ds-color-canvas: var(--ds-neutral-d-bg);
-  --ds-color-paper: var(--ds-neutral-d-card);
-  --ds-color-surface: var(--ds-neutral-d-card);
-  --ds-color-surface-2: var(--ds-neutral-d-muted);
-  --ds-color-ink: var(--ds-neutral-d-fg);
-  --ds-color-ink-2: var(--ds-derived-ink-2-dark);
-  --ds-color-muted: var(--ds-neutral-d-muted-fg);
-  --ds-color-line: var(--ds-caffeine-mocha);
-  --ds-color-line-strong: var(--ds-derived-line-strong-dark);
-  --ds-color-accent: var(--ds-caffeine-cream);
-  --ds-color-accent-text: var(--ds-caffeine-cream);
-  --ds-color-on-accent: var(--ds-caffeine-ink-dark);
-  --ds-color-card: var(--ds-derived-mocha-card);
-  --ds-color-card-ink: var(--ds-caffeine-cream);
-  --ds-color-card-muted: var(--ds-derived-mocha-muted);
-  --ds-color-card-line: var(--ds-derived-mocha-line);
-  --ds-shadow-card: none;
+:root[data-fds-mode='dark'] {
+  --ds-color-line-strong: var(--fds-chart-grid);
+  --ds-color-card: var(--fds-brand-mocha-card);
+  --ds-color-card-ink: var(--fds-brand-cream);
+  --ds-color-card-muted: var(--fds-brand-muted);
+  --ds-color-card-line: var(--fds-brand-line);
 }
 
 /* The CV sheet is always paper-white, whatever the visitor's colour scheme. */
 .ds-theme-paper {
-  --ds-color-paper: #fff;
-  --ds-color-surface: var(--ds-neutral-25);
-  --ds-color-surface-2: var(--ds-neutral-100);
-  --ds-color-ink: var(--ds-neutral-900);
-  --ds-color-ink-2: var(--ds-derived-ink-2-light);
-  --ds-color-muted: var(--ds-neutral-600);
-  --ds-color-line: var(--ds-neutral-200);
-  --ds-color-line-strong: var(--ds-neutral-600);
-  --ds-color-accent: var(--ds-caffeine-espresso);
-  --ds-color-accent-text: var(--ds-caffeine-espresso);
-  --ds-color-on-accent: #fff;
-  --ds-color-card: #fff;
-  --ds-color-card-ink: var(--ds-neutral-900);
-  --ds-color-card-muted: var(--ds-neutral-600);
-  --ds-color-card-line: var(--ds-neutral-100);
-  --ds-shadow-card: 0 1px 2px rgb(0 0 0 / 0.04), 0 8px 24px rgb(0 0 0 / 0.07);
+  color-scheme: light;
   background: var(--ds-color-paper);
   color: var(--ds-color-ink);
 }
