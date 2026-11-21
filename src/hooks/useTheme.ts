@@ -17,7 +17,7 @@ function readStored(): ThemeChoice | null {
 /**
  * The scheme that is showing: the visitor's saved choice, otherwise the OS preference (which keeps
  * being followed until they press the toggle). The inline script in index.html applies the stored
- * choice before first paint; this keeps React and <html data-theme> in sync.
+ * choice before first paint; this keeps React, <html data-theme> and <html data-fds-mode> in sync.
  */
 export function useTheme() {
   const [stored, setStored] = useState<ThemeChoice | null>(readStored);
@@ -36,6 +36,15 @@ export function useTheme() {
     else root.removeAttribute('data-theme');
   }, [stored]);
 
+  const theme: ThemeChoice = stored ?? (systemDark ? 'dark' : 'light');
+
+  // The Caffeine theme from @scttlnd/ui switches palette on data-fds-mode (light is the default).
+  useEffect(() => {
+    const root = document.documentElement;
+    if (theme === 'dark') root.setAttribute('data-fds-mode', 'dark');
+    else root.removeAttribute('data-fds-mode');
+  }, [theme]);
+
   const setTheme = useCallback((next: ThemeChoice) => {
     setStored(next);
     try {
@@ -45,6 +54,5 @@ export function useTheme() {
     }
   }, []);
 
-  const theme: ThemeChoice = stored ?? (systemDark ? 'dark' : 'light');
   return { theme, setTheme };
 }

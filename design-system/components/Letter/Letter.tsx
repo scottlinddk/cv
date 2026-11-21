@@ -34,7 +34,11 @@ export function Letter({
 }: LetterProps) {
   return (
     <div className="ds-sheet-stage">
-      <article lang={lang} className={cx('ds-sheet', 'ds-theme-paper', 'ds-letter', className)}>
+      <article
+        lang={lang}
+        className={cx('ds-sheet', 'ds-theme-paper', 'ds-letter', className)}
+        data-fds-theme="caffeine"
+      >
         <header className="ds-letter__head">
           <h1 className="ds-letter__headline">{headline}</h1>
           {kicker && <p className="ds-letter__kicker">{kicker}</p>}

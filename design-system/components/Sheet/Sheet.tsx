@@ -20,7 +20,7 @@ export interface SheetProps {
 export function Sheet({ header, sidebar, children, className }: SheetProps) {
   return (
     <div className="ds-sheet-stage">
-      <article className={cx('ds-sheet', 'ds-theme-paper', className)}>
+      <article className={cx('ds-sheet', 'ds-theme-paper', className)} data-fds-theme="caffeine">
         <div className="ds-sheet__header">{header}</div>
         <div className="ds-sheet__body">
           <aside className="ds-sheet__sidebar">{sidebar}</aside>
